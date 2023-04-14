@@ -559,9 +559,9 @@ export default function Navbar() {
                 tabIndex={0}
                 className="bg-transparent border-0 text-black dark:text-white hover:bg-transparent "
               >
-                <Link className="inline-flex" href={"/launchpad"}>
-                  <h3>Apply for NFT Verification and Launchpad </h3>
-                </Link>
+                <h3 className="inline-flex">
+                  Apply for NFT Verification and Launchpad{" "}
+                </h3>
 
                 {!isDarkMode ? (
                   <svg
