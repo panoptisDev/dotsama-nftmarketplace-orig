@@ -18,8 +18,8 @@ export default function RootLayout({
             <Footer />
           </div>
           <div className="absolute top-0 left-0 w-full h-full">
-            <div className="absolute top-0 left-0 w-1/2 h-full bg-[url('../public/assets/images/ellipse1.png')] bg-scroll bg-right bg-no-repeat bg-cover"></div>
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-[url('../public/assets/images/ellipse2.png')] bg-scroll bg-left bg-no-repeat bg-cover"></div>
+            <div className="absolute top-0 left-0 w-1/2 h-full bg-[url('../public/assets/images/Ellipse1.png')] bg-scroll bg-right bg-no-repeat bg-cover"></div>
+            <div className="absolute top-0 right-0 w-1/2 h-full bg-[url('../public/assets/images/Ellipse2.png')] bg-scroll bg-left bg-no-repeat bg-cover"></div>
           </div>
         </div>
       </body>
