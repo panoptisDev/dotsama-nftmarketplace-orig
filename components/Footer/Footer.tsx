@@ -93,7 +93,9 @@ export default function Footer() {
         <Link href="/verify" className="link link-hover pb-2">
           Apply for NFT Verification
         </Link>
-        <a className="link link-hover pb-2">Apply for Launchpad</a>
+        <Link href={"/launchpad"} className="link link-hover pb-2">
+          Apply for Launchpad
+        </Link>
       </div>
       <div>
         <h2 className="link link-hover font-black mb-4 footerHead">LINKS</h2>

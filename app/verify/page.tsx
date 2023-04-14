@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import banner from "../../public/assets/images/apply/banner.png";
+import Dropzone from "@/components/DropZone/DropZone";
 
 export default function Apply() {
   return (
@@ -199,6 +200,9 @@ export default function Apply() {
           </span>
         </div>
 
+        <Dropzone className="p-16 mt-10 flex justify-center" />
+
+        <div className="divider"></div>
         <p className="text-xl text-center py-6 px-3">
           Project banner (A rough size at 1200x400, safe area is 800x400, no gif
           files ) <span className="text-red-400">*</span>
@@ -208,6 +212,10 @@ export default function Apply() {
             DROP FILES IN THE BOX BELOW
           </span>
         </div>
+
+        <Dropzone className="p-16 mt-10 flex justify-center" />
+
+        <div className="divider"></div>
         <div className="flex justify-center py-6">
           <p className="text-xl text-left w-[80vw] xl:w-[50vw]">
             Advanced options. Please be noticed that we may or may not pass your
