@@ -2,26 +2,187 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face {
+  font-family: "VietnamSemiBold";
+  src: url("../public/assets/fonts/BeVietnamPro-SemiBold.ttf");
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@font-face {
+  font-family: "VietnamRegular";
+  src: url("../public/assets/fonts/BeVietnamPro-Regular.ttf");
+}
+
+@font-face {
+  font-family: "VietnamBold";
+  src: url("../public/assets/fonts/BeVietnamPro-Bold.ttf");
+}
+
+@font-face {
+  font-family: "VietnamMedium";
+  src: url("../public/assets/fonts/BeVietnamPro-Medium.ttf");
+}
+
+h1 {
+  font-family: "VietnamBold";
+  font-size: 36px;
+}
+
+h2 {
+  font-family: "VietnamRegular";
+  font-size: 16px;
+}
+
+.footerHead {
+  font-family: "VietnamBold";
+}
+
+h3 {
+  font-family: "VietnamRegular";
+  font-size: 16px;
+  font-weight: bold;
+}
+
+input {
+  font-family: "VietnamRegular";
+}
+
+textarea {
+  font-family: "VietnamRegular";
+}
+
+th {
+  font-family: "VietnamRegular";
+  font-size: 16px;
+}
+
+p {
+  font-family: "VietnamRegular";
+  font-size: 14px;
+}
+
+.nav-menu {
+  font-family: "VietnamSemiBold", sans-serif;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+.banner-shadow {
+  box-shadow: 1px 0px 6px 3px rgba(76, 73, 73, 0.301);
+}
+
+a {
+  font-family: "VietnamSemiBold";
+}
+
+.VideoGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 2rem;
+}
+
+.glassEffect {
+  backdrop-filter: blur(2px) saturate(180%);
+  -webkit-backdrop-filter: blur(2px) saturate(180%);
+  background-color: rgba(97, 17, 112, 0.75);
+}
+
+.blurNav {
+  backdrop-filter: blur(11px) saturate(180%);
+  -webkit-backdrop-filter: blur(11px) saturate(180%);
+  background-color: rgba(114, 114, 114, 0.75);
+}
+
+@media only screen and (max-width: 768px) {
+  h1 {
+    font-family: "VietnamBold";
+    font-size: 24px;
+  }
+
+  h2 {
+    font-family: "VietnamRegular";
+    font-size: 15px;
+  }
+
+  a {
+    font-family: "VietnamSemiBold";
+    font-size: 12px;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@media only screen and (min-width: 1500px) {
+  .search-bar {
+    width: 20vw;
+  }
+}
+
+.menu :where(li:not(.menu-title):not(:empty)) > :where(*:not(ul):focus),
+.menu :where(li:not(.menu-title):not(:empty)) > :where(*:not(ul):hover) {
+  background-color: transparent;
+  --tw-bg-opacity: 0.1;
+}
+.menu :where(li:not(.menu-title):not(:empty)) > :where(*:not(ul):focus),
+.menu :where(li:not(.menu-title):not(:empty)) > :where(*:not(ul):hover) {
+  background-color: transparent;
+  --tw-bg-opacity: 0.1;
+}
+.menu :where(li:not(.menu-title):not(:empty)) > :where(:not(ul).active),
+.menu :where(li:not(.menu-title):not(:empty)) > :where(*:not(ul):active) {
+  --tw-bg-opacity: 1;
+  background-color: transparent;
+  --tw-text-opacity: 1;
+  color: hsl(var(--pc) / var(--tw-text-opacity));
+}
+.menu :where(li:not(.menu-title):not(:empty)) > :where(:not(ul).active),
+.menu :where(li:not(.menu-title):not(:empty)) > :where(*:not(ul):active) {
+  --tw-bg-opacity: 1;
+  background-color: transparent;
+  --tw-text-opacity: 1;
+  color: hsl(var(--pc) / var(--tw-text-opacity));
+}
+.menu :where(li:empty) {
+  margin-left: 1rem /* 16px */;
+  margin-right: 1rem /* 16px */;
+  margin-top: 0.5rem /* 8px */;
+  margin-bottom: 0.5rem /* 8px */;
+  height: 1px;
+  background-color: transparent;
+  --tw-bg-opacity: 0.1;
+}
+
+.divider:before {
+  background-color: darkgrey;
+}
+.divider:after {
+  background-color: darkgrey;
+}
+
+.divider:not(:empty) {
+  gap: 0;
+}
+
+.MuiTypography-root {
+  text-align: center;
+  font-size: medium;
+  font-family: "VietnamRegular";
+}
+.MuiTypography-body2 {
+  text-align: center;
+  font-size: medium;
+  font-family: "VietnamRegular";
+}
+.css-e784if-MuiTypography-root {
+  text-align: center;
+  font-size: medium;
+  font-family: "VietnamRegular";
+}
+
+.MuiPickersCalendarHeader-label {
+  font-family: "VietnamRegular";
+}
+
+.css-dplwbx-MuiPickersCalendarHeader-label {
+  font-family: "VietnamRegular";
 }
