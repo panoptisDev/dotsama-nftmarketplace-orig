@@ -55,40 +55,62 @@ export default function Navbar() {
             )}
             <div className="">
               <div className="flex ml-8 items-center">
-                <span>
-                  <Link className="font-semibold" href={"/launchpad"}>
+                <div className="dropdown dropdown-hover ">
+                  <label
+                    tabIndex={0}
+                    className="btn m-1 bg-transparent border-0 text-black dark:text-white hover:bg-transparent"
+                  >
                     Apply for NFT Verification and Launchpad
-                  </Link>
-                </span>
-                {!isDarkMode ? (
-                  <svg
-                    className="ml-2"
-                    width="10"
-                    height="6"
-                    viewBox="0 0 10 6"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+                    {!isDarkMode ? (
+                      <svg
+                        className="ml-2"
+                        width="10"
+                        height="6"
+                        viewBox="0 0 10 6"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5 6L0 1.13513L1.16667 0L5 3.72973L8.83333 0L10 1.13513L5 6Z"
+                          fill="black"
+                        />
+                      </svg>
+                    ) : (
+                      <svg
+                        className="ml-2"
+                        width="10"
+                        height="6"
+                        viewBox="0 0 10 6"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5 6L0 1.13513L1.16667 0L5 3.72973L8.83333 0L10 1.13513L5 6Z"
+                          fill="white"
+                        />
+                      </svg>
+                    )}
+                  </label>
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content menu p-2 shadow bg-white dark:bg-black rounded-box w-80 banner-shadow"
                   >
-                    <path
-                      d="M5 6L0 1.13513L1.16667 0L5 3.72973L8.83333 0L10 1.13513L5 6Z"
-                      fill="black"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    className="ml-2"
-                    width="10"
-                    height="6"
-                    viewBox="0 0 10 6"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M5 6L0 1.13513L1.16667 0L5 3.72973L8.83333 0L10 1.13513L5 6Z"
-                      fill="white"
-                    />
-                  </svg>
-                )}
+                    <li className="dark:hover:bg-black">
+                      <span>
+                        <Link className="font-semibold" href={"/verify"}>
+                          Apply for NFT Verification
+                        </Link>
+                      </span>
+                    </li>
+                    <li className="dark:hover:bg-black">
+                      <span>
+                        <Link className="font-semibold" href={"/launchpad"}>
+                          Apply for NFT Launchpad
+                        </Link>
+                      </span>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
