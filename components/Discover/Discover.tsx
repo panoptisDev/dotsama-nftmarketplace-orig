@@ -4,10 +4,6 @@ export default function Discover() {
   return (
     <div className="">
       <div className="text-black dark:text-white pb-14 ">
-        <div>
-          <h1 className="font-bold">Discover</h1>
-          <h2>361704 items listed</h2>
-        </div>
         <div className="hidden xl:block">
           <div className="flex mt-4 justify-between">
             <div className="flex gap-x-5">
@@ -213,7 +209,7 @@ export default function Discover() {
         </div>
 
         <div className="flex-1 flex-col items-center">
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 lgDesktop:grid-cols-7 xlDesktop:grid-cols-8 gap-y-8 justify-items-center">
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 lgDesktop:grid-cols-6 xlDesktop:grid-cols-7 gap-y-10 justify-items-center">
             <Card src={Image1} />
             <Card src={Image1} />
             <Card src={Image1} />

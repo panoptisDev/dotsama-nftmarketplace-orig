@@ -22,6 +22,10 @@
   src: url("../public/assets/fonts/BeVietnamPro-Medium.ttf");
 }
 
+div {
+  font-family: "VietnamRegular";
+}
+
 h1 {
   font-family: "VietnamBold";
   font-size: 36px;

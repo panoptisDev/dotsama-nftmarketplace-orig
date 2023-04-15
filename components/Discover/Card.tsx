@@ -6,7 +6,7 @@ export default function Card(props: any) {
     <div className="card bg-white dark:bg-stone-700 text-black dark:text-white rounded-lg banner-shadow w-max ">
       <figure>
         <Image
-          className="w-[280px] h-[200px] rounded-md "
+          className="w-[320px] h-[240px] md:w-[260px] md:h-[200px] rounded-md "
           src={props.src}
           alt="item"
         />
@@ -21,8 +21,8 @@ export default function Card(props: any) {
             <Image className="" src={Verified} alt="item" />
           </div>
         </h2>
-        <div className="flex justify-between mt-2">
-          <div>
+        <div className="flex justify-between mt-4 gap-y-4">
+          <div className="flex flex-col text-left gap-y-4">
             <p
               className="text-sm font-normal"
               style={{ fontFamily: "VietnamMedium" }}
@@ -37,9 +37,9 @@ export default function Card(props: any) {
               alt="item"
             />
           </div>
-          <div className="flex flex-col justify-end text-left">
+          <div className="flex flex-col text-left justify-end gap-y-4">
             <p
-              className="text-xs mt-1 text-[#10C623] flex"
+              className="text-[#10C623] flex"
               style={{ fontFamily: "VietnamMedium", fontSize: "0.75rem" }}
             >
               0.000006 BNB
@@ -58,7 +58,7 @@ export default function Card(props: any) {
               </svg>
             </p>
             <p
-              className="text-xs text-gray-400 mt-1"
+              className="text-gray-400"
               style={{ fontFamily: "VietnamMedium", fontSize: "0.75rem" }}
             >
               Floor 0.00001BNB

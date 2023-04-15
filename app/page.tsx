@@ -17,6 +17,10 @@ export default function Home() {
           <div className="pb-24">
             <HotCollections />
           </div>
+          <div className="text-black dark:text-white">
+            <h1 className="font-bold">Discover</h1>
+            <h2>361704 items listed</h2>
+          </div>
           <Discover />
         </div>
       </div>
