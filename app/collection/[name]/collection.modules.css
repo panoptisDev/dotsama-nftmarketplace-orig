@@ -1,3 +1,9 @@
 .shadow {
   box-shadow: none;
 }
+
+@media screen and (min-width: 768px) {
+  .shadowAbout {
+    box-shadow: 1px 0px 6px 3px rgba(76, 73, 73, 0.301);
+  }
+}

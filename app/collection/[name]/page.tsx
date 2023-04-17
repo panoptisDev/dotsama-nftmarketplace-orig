@@ -11,7 +11,7 @@ export default function CollectionName() {
         <div className="col-span-3 lg:col-span-2">
           <Image className="w-full" src={cBanner} alt="banner" />
         </div>
-        <div className="bg-transparent md:bg-white md:dark:bg-[#232323] p-6 md:p-8 rounded-2xl md:rounded-[36px] col-span-3 lg:col-span-1 grid grid-cols-1 content-around xl:content-center md:banner-shadow">
+        <div className="bg-transparent md:bg-white md:dark:bg-[#232323] p-6 md:p-8 rounded-2xl md:rounded-[36px] col-span-3 lg:col-span-1 grid grid-cols-1 content-around xl:content-center shadowAbout">
           <h1 className="text-lg md:text-3xl">About Us</h1>
           <p className="py-4 text-xs md:text-lg">
             SPACE ID is building a universal name service network that

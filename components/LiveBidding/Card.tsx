@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Verified from "../../public/assets/images/verified.svg";
+import Link from "next/link";
 
 export default function Card(props: any) {
   return (
@@ -17,7 +18,7 @@ export default function Card(props: any) {
             className="card-title text-base font-bold"
             style={{ fontFamily: "VietnamRegular" }}
           >
-            Chain Arena
+            <Link href={"/collection/0x98A49JDJae17D8"}>Chain Arena</Link>
             <div className="">
               <div className="">
                 <Image className="" src={Verified} alt="item" />

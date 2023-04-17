@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Verified from "../../public/assets/images/verified.svg";
 import bnbChain from "../../public/assets/images/discover/bnbChain.png";
+import Link from "next/link";
 export default function Card(props: any) {
   return (
     <div className="card bg-white dark:bg-stone-700 text-black dark:text-white rounded-lg banner-shadow w-max ">
@@ -27,7 +28,7 @@ export default function Card(props: any) {
               className="text-sm font-normal"
               style={{ fontFamily: "VietnamMedium" }}
             >
-              BitKeep Kn...
+              <Link href={"/item/1"}> BitKeep Kn...</Link>
             </p>{" "}
             <Image
               className=""
