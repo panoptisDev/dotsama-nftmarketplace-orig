@@ -1,3 +1,4 @@
+"use client";
 export default function Trait(props: any) {
   return (
     <div className="flex flex-row justify-between my-3">

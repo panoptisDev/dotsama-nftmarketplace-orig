@@ -17,7 +17,7 @@ export default function Card(props: any) {
           className="card-title text-base font-bold"
           style={{ fontFamily: "VietnamRegular" }}
         >
-          Chain Arena
+          <Link href={"/collection/bnb/0x98A49JDJae17D8eef1"}>Chain Arena</Link>
           <div className="">
             <Image className="" src={Verified} alt="item" />
           </div>
@@ -28,7 +28,12 @@ export default function Card(props: any) {
               className="text-sm font-normal"
               style={{ fontFamily: "VietnamMedium" }}
             >
-              <Link href={"/item/1"}> BitKeep Kn...</Link>
+              <Link
+                href={"/nft/bsc/0x458AEE8b453F0d0FF22D8aab4FC1D10026a62068"}
+              >
+                {" "}
+                BitKeep Kn...
+              </Link>
             </p>{" "}
             <Image
               className=""

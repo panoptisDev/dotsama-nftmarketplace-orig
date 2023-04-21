@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import cBanner from "../../../public/assets/images/collection/collectionBanner.png";
 import Latest from "@/components/LatestActivity/Latest";

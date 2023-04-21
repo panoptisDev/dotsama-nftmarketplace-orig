@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import avatar from "../../../public/assets/images/item/avatar.png";
 export default function Activities() {
