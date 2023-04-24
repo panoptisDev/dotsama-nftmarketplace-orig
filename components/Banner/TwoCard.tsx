@@ -16,7 +16,7 @@ export default function TwoCard() {
             className="bg-white dark:bg-gray-700 p-2 rounded-xl banner-shadow"
             src={Image1}
             alt="b-image"
-          />
+          />{" "}
           <Image
             className="bg-white dark:bg-gray-700 p-2 rounded-xl banner-shadow"
             src={Image2}

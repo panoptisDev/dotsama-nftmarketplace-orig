@@ -120,7 +120,7 @@ export default function Item() {
                   <input
                     type="checkbox"
                     id="my-modal-4"
-                    className="modal-toggle"
+                    className="modal-toggle bg-white dark:bg-black"
                   />
                   <label htmlFor="my-modal-4" className="modal cursor-pointer">
                     <label
@@ -142,7 +142,7 @@ export default function Item() {
                         </label>
                         <label className="input-group">
                           <input
-                            type="text"
+                            type="number"
                             placeholder="0.01"
                             className="input input-bordered"
                           />
@@ -286,7 +286,7 @@ export default function Item() {
           </div>
         </div>
         <div className="flex gap-x-4 mt-20">
-          <button className="bg-black dark:bg-white text-white dark:text-white py-2 px-5 rounded-full font-semibold">
+          <button className="bg-black dark:bg-white text-white dark:text-black py-2 px-5 rounded-full font-semibold">
             Activities
           </button>
           <button

@@ -25,7 +25,7 @@ export default function Banner() {
         <div className="relative">
           <div
             id="content"
-            className="carousel flex items-center justify-start overflow-x-auto scroll-smooth scrollbar-hide gap-x-4"
+            className="carousel flex p-2 items-center justify-start overflow-x-auto scroll-smooth scrollbar-hide gap-x-4"
           >
             <Image
               className="w-[500px] h-[300px] bg-white dark:bg-gray-700 rounded-xl p-4 banner-shadow"
@@ -42,20 +42,55 @@ export default function Banner() {
       <div className="hidden md:block">
         <div className="grid grid-cols-5 gap-x-4 text-white mt-16 mb-10">
           <div className="row-span-2 col-span-2 flex justify-center bg-white dark:bg-gray-700 rounded-xl p-4 banner-shadow">
-            <Image
-              className=" w-[100%] rounded-xl"
-              src={mainBanner}
-              alt="main"
-            />
+            <Link
+              className="w-[100%]"
+              href={"/collection/bnb/0x98A49JDJae17D8eef1"}
+            >
+              <Image
+                className="w-[100%] rounded-xl"
+                src={mainBanner}
+                alt="main"
+              />
+            </Link>
           </div>
           <div className="col-span-3">
             <div className="grid grid-cols-3 gap-4">
-              <Card src={Image1} />
-              <Card src={Image2} />
-              <Card src={Image3} />
-              <Card src={Image4} />
-              <Card src={Image5} />
-              <Card src={Image6} />
+              <Link
+                className="w-[100%]"
+                href={"/collection/bnb/0x98A49JDJae17D8eef1"}
+              >
+                <Card src={Image1} />
+              </Link>
+              <Link
+                className="w-[100%]"
+                href={"/collection/bnb/0x98A49JDJae17D8eef1"}
+              >
+                <Card src={Image2} />
+              </Link>
+              <Link
+                className="w-[100%]"
+                href={"/collection/bnb/0x98A49JDJae17D8eef1"}
+              >
+                <Card src={Image3} />
+              </Link>
+              <Link
+                className="w-[100%]"
+                href={"/collection/bnb/0x98A49JDJae17D8eef1"}
+              >
+                <Card src={Image4} />
+              </Link>
+              <Link
+                className="w-[100%]"
+                href={"/collection/bnb/0x98A49JDJae17D8eef1"}
+              >
+                <Card src={Image5} />
+              </Link>
+              <Link
+                className="w-[100%]"
+                href={"/collection/bnb/0x98A49JDJae17D8eef1"}
+              >
+                <Card src={Image6} />
+              </Link>
             </div>
           </div>
         </div>

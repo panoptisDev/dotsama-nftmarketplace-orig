@@ -6,13 +6,18 @@ export default function Card(props: any) {
   return (
     <div className="card bg-white dark:bg-stone-700 text-black dark:text-white rounded-lg banner-shadow w-max ">
       <figure>
-        <Image
-          className="w-[320px] h-[240px] md:w-[260px] md:h-[200px] rounded-md "
-          src={props.src}
-          alt="item"
-        />
+        <Link
+          className="w-[320px] h-[240px] md:w-[260px] md:h-[180px] rounded-md "
+          href={"/collection/bnb/0x98A49JDJae17D8eef1"}
+        >
+          <Image
+            className="w-[320px] h-[240px] md:w-[260px] md:h-[180px] rounded-md "
+            src={props.src}
+            alt="item"
+          />
+        </Link>
       </figure>
-      <div className="p-5">
+      <div className="p-4">
         <h2
           className="card-title text-base font-bold"
           style={{ fontFamily: "VietnamRegular" }}

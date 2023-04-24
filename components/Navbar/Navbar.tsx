@@ -298,7 +298,7 @@ export default function Navbar() {
           </div>
           <div className="flex-none">
             <div className="dropdown dropdown-end">
-              <label tabIndex={0} className="py-6">
+              <label tabIndex={0} className="my-6">
                 <button
                   className="btn btn-ghost btn-circle"
                   onClick={() => isSClicked(!sClicked)}

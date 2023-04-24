@@ -5,14 +5,16 @@ import Link from "next/link";
 
 export default function Card(props: any) {
   return (
-    <div className="carousel-item banner-shadow rounded-lg">
+    <div className="carousel-item shadow-xl rounded-lg">
       <div className="card bg-white dark:bg-stone-700 text-black dark:text-white rounded-lg">
         <figure>
-          <Image
-            className="w-[280px] h-[200px] rounded-md"
-            src={props.src}
-            alt="item"
-          />
+          <Link href={"/collection/bnb/0x98A49JDJae17D8eef1"}>
+            <Image
+              className="w-[280px] h-[200px] rounded-md"
+              src={props.src}
+              alt="item"
+            />
+          </Link>
         </figure>
         <div className="p-5">
           <h2
@@ -22,8 +24,10 @@ export default function Card(props: any) {
             <Link href={"/collection/bnb/0x98A49JDJae17D8eef1"}>
               Chain Arena
             </Link>
-            <div className="">
-              <Image className="" src={Verified} alt="item" />
+            <div className="flex items-center">
+              <div className="tooltip" data-tip="Verified">
+                <Image className="" src={Verified} alt="item" />
+              </div>
             </div>
           </h2>
           <div className="flex justify-between mt-2">

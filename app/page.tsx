@@ -9,7 +9,7 @@ import Footer from "@/components/Footer/Footer";
 export default function Home() {
   return (
     <div>
-      <div className="mx-5 md:mx-10">
+      <div className="px-4 md:px-10">
         <div className="">
           <Banner />
           <Launchpad />

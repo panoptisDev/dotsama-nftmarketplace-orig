@@ -1,24 +1,22 @@
+"use client";
 import Image from "next/image";
-import Verified from "../../public/assets/images/verified.svg";
+import Verified from "../../../public/assets/images/verified.svg";
 import Link from "next/link";
 
-export default function Card(props: any) {
+export default function CardFeature(props: any) {
   return (
     <div className="carousel-item shadow-xl rounded-lg">
-      <div className="card bg-white dark:bg-stone-700 text-black dark:text-white rounded-lg">
+      <div className="card bg-white text-black rounded-lg">
         <figure>
-          <Link
-            className="w-[280px] h-[200px] rounded-md"
-            href={"/collection/bnb/0x98A49JDJae17D8eef1"}
-          >
+          <Link href={"/collection/bnb/0x98A49JDJae17D8eef1"}>
             <Image
-              className="w-[280px] h-[200px] rounded-md"
+              className="w-[280px] h-[180px] md:w-[280px] md:h-[280px] rounded-md"
               src={props.src}
               alt="item"
             />
           </Link>
         </figure>
-        <div className="p-5">
+        <div className="p-3 md:p-5">
           <h2
             className="card-title text-base font-bold"
             style={{ fontFamily: "VietnamRegular" }}
@@ -26,7 +24,6 @@ export default function Card(props: any) {
             <Link href={"/collection/bnb/0x98A49JDJae17D8eef1"}>
               Chain Arena
             </Link>
-
             <div className="flex items-center">
               <div className="tooltip" data-tip="Verified">
                 <Image className="" src={Verified} alt="item" />
@@ -56,7 +53,7 @@ export default function Card(props: any) {
                 Total Volume
               </p>{" "}
               <p
-                className="text-xs text-gray-400 mt-1"
+                className="text-xs text-gray-400 mt-1 text-right md:text-left"
                 style={{ fontFamily: "VietnamMedium", fontSize: "0.75rem" }}
               >
                 1.21 ETH
