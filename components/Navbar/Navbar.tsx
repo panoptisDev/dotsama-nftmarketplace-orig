@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Fragment } from "react";
 import Image from "next/image";
 import lightLogo from "../../public/assets/images/light-logo.png";
 import logo from "../../public/assets/images/logo.png";
@@ -7,6 +7,12 @@ import bnbChain from "../../public/assets/images/bnbchain.png";
 import Link from "next/link";
 import Search from "../Navbar/Search";
 import Connect from "./Connect";
+import { Menu, Transition } from "@headlessui/react";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
+
+function classNames(...classes: any[]) {
+  return classes.filter(Boolean).join(" ");
+}
 
 export default function Navbar() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -208,25 +214,109 @@ export default function Navbar() {
                     d="M21.0954 14.5754C20.7266 15.8953 20.0187 17.0957 19.0421 18.0571C18.0655 19.0185 16.8542 19.7074 15.5287 20.0554C14.2032 20.4033 12.8097 20.3981 11.4869 20.0402C10.1641 19.6824 8.95798 18.9844 7.98859 18.0157C7.0192 17.047 6.3203 15.8413 5.96142 14.5187C5.60255 13.196 5.5962 11.8024 5.943 10.4765C6.28981 9.15064 6.97768 7.93867 7.9382 6.96118C8.89872 5.98368 10.0984 5.27473 11.4179 4.90485C11.5146 4.87371 11.6174 4.86681 11.7174 4.88474C11.8174 4.90267 11.9114 4.94488 11.9913 5.00767C12.0711 5.07046 12.1343 5.1519 12.1753 5.24484C12.2163 5.33777 12.2338 5.43935 12.2263 5.54065C12.2261 5.58871 12.2182 5.63642 12.2028 5.68194C11.8914 6.80595 11.8837 7.99244 12.1805 9.12039C12.4773 10.2483 13.068 11.2774 13.8922 12.1025C14.7165 12.9276 15.7448 13.5193 16.8724 13.8172C17.9999 14.1152 19.1863 14.1086 20.3105 13.7983L20.4832 13.7669C20.6198 13.7658 20.753 13.8088 20.8633 13.8893C20.9735 13.9699 21.0549 14.0839 21.0954 14.2143C21.1349 14.3314 21.1349 14.4583 21.0954 14.5754Z"
                   />
                 </svg>
-                <svg
-                  width="27"
-                  height="27"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle
-                    className="fill-black dark:fill-white"
-                    cx="12"
-                    cy="12"
-                    r="12"
-                    fill="black"
-                  />
-                  <path
-                    className="fill-white dark:fill-black"
-                    d="M12 4C12.8487 4 13.6626 4.33714 14.2627 4.93726C14.8628 5.53737 15.2 6.35131 15.2 7.2C15.2 8.04869 14.8628 8.86263 14.2627 9.46274C13.6626 10.0629 12.8487 10.4 12 10.4C11.1513 10.4 10.3374 10.0629 9.73723 9.46274C9.13712 8.86263 8.79998 8.04869 8.79998 7.2C8.79998 6.35131 9.13712 5.53737 9.73723 4.93726C10.3374 4.33714 11.1513 4 12 4ZM12 12C15.536 12 18.4 13.432 18.4 15.2V16.8H5.59998V15.2C5.59998 13.432 8.46398 12 12 12Z"
-                  />
-                </svg>
+
+                <Menu as="div" className="relative inline-block text-left">
+                  <div>
+                    <Menu.Button className="w-full h-full justify-center py-2">
+                      <svg
+                        width="27"
+                        height="27"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          className="fill-black dark:fill-white"
+                          cx="12"
+                          cy="12"
+                          r="12"
+                          fill="black"
+                        />
+                        <path
+                          className="fill-white dark:fill-black"
+                          d="M12 4C12.8487 4 13.6626 4.33714 14.2627 4.93726C14.8628 5.53737 15.2 6.35131 15.2 7.2C15.2 8.04869 14.8628 8.86263 14.2627 9.46274C13.6626 10.0629 12.8487 10.4 12 10.4C11.1513 10.4 10.3374 10.0629 9.73723 9.46274C9.13712 8.86263 8.79998 8.04869 8.79998 7.2C8.79998 6.35131 9.13712 5.53737 9.73723 4.93726C10.3374 4.33714 11.1513 4 12 4ZM12 12C15.536 12 18.4 13.432 18.4 15.2V16.8H5.59998V15.2C5.59998 13.432 8.46398 12 12 12Z"
+                        />
+                      </svg>
+                    </Menu.Button>
+                  </div>
+
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                  >
+                    <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white dark:bg-black banner-shadow shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <div className="py-1">
+                        <Menu.Item>
+                          {({ active }) => (
+                            <a
+                              href="/user/100x100"
+                              className={classNames(
+                                active
+                                  ? "bg-gray-100 text-gray-900 dark:text-black"
+                                  : "text-gray-700 dark:text-white ",
+                                "block px-4 py-2 text-sm"
+                              )}
+                            >
+                              My Profile
+                            </a>
+                          )}
+                        </Menu.Item>
+                        <Menu.Item>
+                          {({ active }) => (
+                            <a
+                              href="/asset/create"
+                              className={classNames(
+                                active
+                                  ? "bg-gray-100 text-gray-900 dark:text-black"
+                                  : "text-gray-700 dark:text-white",
+                                "block px-4 py-2 text-sm"
+                              )}
+                            >
+                              Create Item
+                            </a>
+                          )}
+                        </Menu.Item>
+                        {/* <Menu.Item>
+                          {({ active }) => (
+                            <a
+                              href="#"
+                              className={classNames(
+                                active
+                                  ? "bg-gray-100 text-gray-900"
+                                  : "text-gray-700",
+                                "block px-4 py-2 text-sm"
+                              )}
+                            >
+                              License
+                            </a>
+                          )}
+                        </Menu.Item>
+                        <form method="POST" action="#">
+                          <Menu.Item>
+                            {({ active }) => (
+                              <button
+                                type="submit"
+                                className={classNames(
+                                  active
+                                    ? "bg-gray-100 text-gray-900"
+                                    : "text-gray-700",
+                                  "block w-full px-4 py-2 text-left text-sm"
+                                )}
+                              >
+                                Sign out
+                              </button>
+                            )}
+                          </Menu.Item>
+                        </form> */}
+                      </div>
+                    </Menu.Items>
+                  </Transition>
+                </Menu>
               </div>
             </div>
           </div>

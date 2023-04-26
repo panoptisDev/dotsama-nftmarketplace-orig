@@ -60,12 +60,14 @@ const Dropzone = ({ className }: any) => {
         })}
       >
         <input {...getInputProps()} />
-        <div className="flex flex-col items-center gap-4 w-1/2 justify-center">
+        <div className="flex flex-col items-center gap-4 w-1/2 justify-center border border-black py-10">
           <ArrowUpTrayIcon className="w-5 h-5 fill-current" />
           {isDragActive ? (
-            <p>Drop the files here ...</p>
+            <p className="text-center">Drop the files here ...</p>
           ) : (
-            <p>Drag & drop files here, or click to select files</p>
+            <p className="text-center">
+              Drag & drop files here, or click to select files
+            </p>
           )}
         </div>
       </div>

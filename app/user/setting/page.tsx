@@ -149,7 +149,7 @@ export default function Setting() {
                 </span>
               </label>
               <label className="input-group">
-                <span className="dark:bg-[#333333] border-r border-white">
+                <span className="bg-white dark:bg-[#333333] border-r border-black dark:border-white">
                   <svg
                     width="30"
                     height="24"
@@ -178,7 +178,7 @@ export default function Setting() {
                 </span>
               </label>
               <label className="input-group">
-                <span className="dark:bg-[#333333] border-r border-white">
+                <span className="bg-white dark:bg-[#333333] border-r border-black dark:border-white">
                   <svg
                     width="31"
                     height="30"
@@ -214,7 +214,7 @@ export default function Setting() {
                 </span>
               </label>
               <label className="input-group">
-                <span className="dark:bg-[#333333] border-r border-white">
+                <span className="bg-white dark:bg-[#333333] border-r border-black dark:border-white">
                   <svg
                     width="31"
                     height="30"

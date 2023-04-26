@@ -9,6 +9,7 @@ import CardFeature from "./CardFeature";
 import Card from "../../../components/Discover/Card";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
+import Link from "next/link";
 
 const category = [
   {
@@ -129,18 +130,20 @@ export default function User() {
                   <div className="col-span-3">
                     <div className="flex justify-end items-center gap-x-2 md:gap-x-8">
                       <div className="w-10 h-10 md:w-12 md:h-12 flex justify-center items-center bg-[#d9d9d9] dark:bg-[#676767] rounded-lg">
-                        <svg
-                          width="27"
-                          height="27"
-                          viewBox="0 0 27 27"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            className="fill-black dark:fill-white"
-                            d="M25.5396 13.7866C25.1928 13.7866 24.8602 13.9244 24.615 14.1696C24.3698 14.4148 24.232 14.7474 24.232 15.0942V22.9394C24.232 23.2862 24.0943 23.6188 23.8491 23.864C23.6039 24.1092 23.2713 24.2469 22.9245 24.2469H4.61891C4.27213 24.2469 3.93955 24.1092 3.69434 23.864C3.44913 23.6188 3.31137 23.2862 3.31137 22.9394V4.63382C3.31137 4.28704 3.44913 3.95446 3.69434 3.70925C3.93955 3.46404 4.27213 3.32628 4.61891 3.32628H12.4642C12.8109 3.32628 13.1435 3.18852 13.3887 2.94331C13.6339 2.6981 13.7717 2.36552 13.7717 2.01874C13.7717 1.67195 13.6339 1.33938 13.3887 1.09416C13.1435 0.848953 12.8109 0.711195 12.4642 0.711195H4.61891C3.57857 0.711195 2.58083 1.12447 1.8452 1.86011C1.10956 2.59574 0.696289 3.59347 0.696289 4.63382V22.9394C0.696289 23.9797 1.10956 24.9775 1.8452 25.7131C2.58083 26.4487 3.57857 26.862 4.61891 26.862H22.9245C23.9648 26.862 24.9626 26.4487 25.6982 25.7131C26.4338 24.9775 26.8471 23.9797 26.8471 22.9394V15.0942C26.8471 14.7474 26.7094 14.4148 26.4641 14.1696C26.2189 13.9244 25.8864 13.7866 25.5396 13.7866ZM5.92646 14.7803V20.3243C5.92646 20.6711 6.06421 21.0037 6.30943 21.2489C6.55464 21.4941 6.88722 21.6319 7.234 21.6319H12.778C12.9501 21.6329 13.1206 21.5999 13.2799 21.5348C13.4393 21.4697 13.5842 21.3739 13.7063 21.2527L22.7545 12.1914L26.4679 8.55644C26.5905 8.43489 26.6878 8.29028 26.7541 8.13094C26.8205 7.9716 26.8547 7.8007 26.8547 7.62809C26.8547 7.45548 26.8205 7.28457 26.7541 7.12524C26.6878 6.9659 26.5905 6.82129 26.4679 6.69973L20.924 1.09038C20.8024 0.967828 20.6578 0.870554 20.4985 0.804172C20.3391 0.73779 20.1682 0.703613 19.9956 0.703613C19.823 0.703613 19.6521 0.73779 19.4928 0.804172C19.3334 0.870554 19.1888 0.967828 19.0672 1.09038L15.38 4.79072L6.30564 13.852C6.18446 13.9742 6.08858 14.1191 6.02351 14.2784C5.95844 14.4377 5.92546 14.6083 5.92646 14.7803ZM19.9956 3.86237L23.6959 7.56271L21.8392 9.41942L18.1389 5.71908L19.9956 3.86237ZM8.54154 15.3164L16.2953 7.56271L19.9956 11.2631L12.2419 19.0168H8.54154V15.3164Z"
-                          />
-                        </svg>
+                        <Link href={"/user/setting"}>
+                          <svg
+                            width="27"
+                            height="27"
+                            viewBox="0 0 27 27"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              className="fill-black dark:fill-white"
+                              d="M25.5396 13.7866C25.1928 13.7866 24.8602 13.9244 24.615 14.1696C24.3698 14.4148 24.232 14.7474 24.232 15.0942V22.9394C24.232 23.2862 24.0943 23.6188 23.8491 23.864C23.6039 24.1092 23.2713 24.2469 22.9245 24.2469H4.61891C4.27213 24.2469 3.93955 24.1092 3.69434 23.864C3.44913 23.6188 3.31137 23.2862 3.31137 22.9394V4.63382C3.31137 4.28704 3.44913 3.95446 3.69434 3.70925C3.93955 3.46404 4.27213 3.32628 4.61891 3.32628H12.4642C12.8109 3.32628 13.1435 3.18852 13.3887 2.94331C13.6339 2.6981 13.7717 2.36552 13.7717 2.01874C13.7717 1.67195 13.6339 1.33938 13.3887 1.09416C13.1435 0.848953 12.8109 0.711195 12.4642 0.711195H4.61891C3.57857 0.711195 2.58083 1.12447 1.8452 1.86011C1.10956 2.59574 0.696289 3.59347 0.696289 4.63382V22.9394C0.696289 23.9797 1.10956 24.9775 1.8452 25.7131C2.58083 26.4487 3.57857 26.862 4.61891 26.862H22.9245C23.9648 26.862 24.9626 26.4487 25.6982 25.7131C26.4338 24.9775 26.8471 23.9797 26.8471 22.9394V15.0942C26.8471 14.7474 26.7094 14.4148 26.4641 14.1696C26.2189 13.9244 25.8864 13.7866 25.5396 13.7866ZM5.92646 14.7803V20.3243C5.92646 20.6711 6.06421 21.0037 6.30943 21.2489C6.55464 21.4941 6.88722 21.6319 7.234 21.6319H12.778C12.9501 21.6329 13.1206 21.5999 13.2799 21.5348C13.4393 21.4697 13.5842 21.3739 13.7063 21.2527L22.7545 12.1914L26.4679 8.55644C26.5905 8.43489 26.6878 8.29028 26.7541 8.13094C26.8205 7.9716 26.8547 7.8007 26.8547 7.62809C26.8547 7.45548 26.8205 7.28457 26.7541 7.12524C26.6878 6.9659 26.5905 6.82129 26.4679 6.69973L20.924 1.09038C20.8024 0.967828 20.6578 0.870554 20.4985 0.804172C20.3391 0.73779 20.1682 0.703613 19.9956 0.703613C19.823 0.703613 19.6521 0.73779 19.4928 0.804172C19.3334 0.870554 19.1888 0.967828 19.0672 1.09038L15.38 4.79072L6.30564 13.852C6.18446 13.9742 6.08858 14.1191 6.02351 14.2784C5.95844 14.4377 5.92546 14.6083 5.92646 14.7803ZM19.9956 3.86237L23.6959 7.56271L21.8392 9.41942L18.1389 5.71908L19.9956 3.86237ZM8.54154 15.3164L16.2953 7.56271L19.9956 11.2631L12.2419 19.0168H8.54154V15.3164Z"
+                            />
+                          </svg>
+                        </Link>
                       </div>
                       <div className="w-10 h-10 md:w-12 md:h-12 flex justify-center items-center bg-[#d9d9d9] dark:bg-[#676767] rounded-lg">
                         <svg
@@ -208,7 +211,7 @@ export default function User() {
           </div>
         </div>
         <div className="hidden md:block">
-          <div className="banner-shadow rounded-3xl bg-white dark:bg-[#373737] relative -top-64 w-7/12 p-4 ">
+          <div className="banner-shadow rounded-3xl bg-white dark:bg-[#373737] relative -top-64 w-7/12 p-6 ">
             <h1>About Me</h1>
             <p className="my-5">
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -220,34 +223,34 @@ export default function User() {
             </p>
           </div>
         </div>
-        <div className="relative -top-0 md:-top-36">
-          <div className="flex flex-col gap-y-4 md:gap-y-14 filter-shadow px-0 py-0 md:py-10 rounded-lg md:px-16 mx-0 md:mx-24">
-            <div className="flex flex-row gap-x-2 md:gap-x-6 justify-center items-center">
-              <button className="bg-gray-500 rounded-md w-28 py-1 text-gray-200 hover:bg-black">
+        <div className="relative -top-0 md:-top-36 ">
+          <div className="flex flex-col gap-y-4 md:gap-y-14 filter-shadow px-0 py-0 md:py-10 rounded-lg md:px-16 mx-0 md:mx-24 bg-[#F8F8F8] dark:bg-[#373737] banner-shadow">
+            <div className="flex flex-row gap-x-2 md:gap-x-6 justify-center items-center ">
+              <button className="bg-gray-500 rounded-md w-28 py-1 text-gray-200 dark:text-gray-100 dark:hover:text-black hover:bg-black dark:hover:bg-white">
                 On Sale
               </button>
-              <button className="bg-gray-500 rounded-md w-28 py-1 text-gray-200 hover:bg-black">
+              <button className="bg-gray-500 rounded-md w-28 py-1 text-gray-200 dark:text-gray-100 dark:hover:text-black hover:bg-black dark:hover:bg-white">
                 Items
               </button>
-              <button className="bg-gray-500 rounded-md w-28 py-1 text-gray-200 hover:bg-black">
+              <button className="bg-gray-500 rounded-md w-28 py-1 text-gray-200 dark:text-gray-100 dark:hover:text-black hover:bg-black dark:hover:bg-white">
                 Offer
               </button>
-              <button className="bg-gray-500 rounded-md w-28 py-1 text-gray-200 hover:bg-black">
+              <button className="bg-gray-500 rounded-md w-28 py-1 text-gray-200 dark:text-gray-100 dark:hover:text-black hover:bg-black dark:hover:bg-white">
                 Activities
               </button>
             </div>
             <div className="flex flex-wrap md:flex-row gap-y-2 justify-center md:justify-between items-center">
               <div className="flex gap-x-2 md:gap-x-6">
-                <button className="bg-gray-500 rounded-md w-20 md:w-28 py-1 text-gray-200 hover:bg-black">
+                <button className="bg-gray-500 rounded-md w-20 md:w-28 py-1 text-gray-200 dark:text-gray-100 dark:hover:text-black hover:bg-black dark:hover:bg-white">
                   Buy Now
                 </button>
-                <button className="bg-gray-500 rounded-md w-20 md:w-28 py-1 text-gray-200 hover:bg-black">
+                <button className="bg-gray-500 rounded-md w-20 md:w-28 py-1 text-gray-200 dark:text-gray-100 dark:hover:text-black hover:bg-black dark:hover:bg-white">
                   Auctions
                 </button>
-                <button className="bg-gray-500 rounded-md w-20 md:w-28 py-1 text-gray-200 hover:bg-black">
+                <button className="bg-gray-500 rounded-md w-20 md:w-28 py-1 text-gray-200 dark:text-gray-100 dark:hover:text-black hover:bg-black dark:hover:bg-white">
                   Bids
                 </button>
-                <button className="bg-gray-500 rounded-md w-20 md:w-28 py-1 text-gray-200 hover:bg-black">
+                <button className="bg-gray-500 rounded-md w-20 md:w-28 py-1 text-gray-200 dark:text-gray-100 dark:hover:text-black hover:bg-black dark:hover:bg-white">
                   Ended
                 </button>
               </div>
@@ -257,9 +260,9 @@ export default function User() {
                     {({ open }) => (
                       <>
                         <div className="relative">
-                          <Listbox.Button className="relative w-40 md:w-40 cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-black sm:text-sm sm:leading-6">
+                          <Listbox.Button className="relative w-40 md:w-40 cursor-default rounded-md bg-transparent border border-black dark:border-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-black sm:text-sm sm:leading-6">
                             <span className="flex items-center">
-                              <span className=" block truncate">
+                              <span className=" block truncate text-black dark:text-white">
                                 {selected3.name}
                               </span>
                             </span>
@@ -338,9 +341,9 @@ export default function User() {
                     {({ open }) => (
                       <>
                         <div className="relative">
-                          <Listbox.Button className="relative w-40 md:w-40 cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-black sm:text-sm sm:leading-6">
+                          <Listbox.Button className="relative w-40 md:w-40 cursor-default rounded-md bg-transparent border border-black dark:border-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-black sm:text-sm sm:leading-6">
                             <span className="flex items-center">
-                              <span className=" block truncate">
+                              <span className=" block truncate text-black dark:text-white">
                                 {selected4.name}
                               </span>
                             </span>
