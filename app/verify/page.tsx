@@ -201,7 +201,7 @@ export default function Apply() {
           </span>
         </div>
 
-        <Dropzone className="p-16 mt-10 flex justify-center" />
+        <Dropzone className="p-0 md:p-16 mt-10 flex justify-center" />
 
         <div className="divider"></div>
         <p className="text-xl text-center py-6 px-3">
@@ -214,7 +214,7 @@ export default function Apply() {
           </span>
         </div>
 
-        <Dropzone className="p-16 mt-10 flex justify-center" />
+        <Dropzone className="p-0 md:p-16 mt-10 flex justify-center" />
 
         <div className="divider"></div>
         <div className="flex justify-center py-6">
