@@ -6,6 +6,7 @@ import { web3Accounts, web3Enable } from "@polkadot/extension-dapp";
 import { InjectedAccountWithMeta } from "@polkadot/extension-inject/types";
 import Image from "next/image";
 import subwallet from "../../public/assets/images/connect/subwallet.png";
+import Link from "next/link";
 import type { InjectedExtension } from "@polkadot/extension-inject/types";
 import { objectSpread } from "@polkadot/util";
 
@@ -103,20 +104,29 @@ export default function Connect() {
 
   return (
     <>
-      <label
-        className="cursor-pointer bg-black xl:bg-gradient-to-r from-sky-950 via-sky-900 to-sky-800 text-white dark:text-white px-3 py-3 text-sm rounded-lg"
+      <Link href={"/connect"}>
+        <label
+          className="cursor-pointer bg-black xl:bg-gradient-to-r from-sky-950 via-sky-900 to-sky-800 text-white dark:text-white px-3 py-3 text-sm rounded-lg z-50"
+          style={{ fontFamily: "VietnamSemiBold" }}
+          htmlFor="my-modal-9"
+        >
+          Connect Wallet
+        </label>
+      </Link>
+
+      {/* <button
+        className="block md:hidden cursor-pointer bg-black xl:bg-gradient-to-r from-sky-950 via-sky-900 to-sky-800 text-white dark:text-white px-3 py-3 text-sm rounded-lg z-50"
         style={{ fontFamily: "VietnamSemiBold" }}
-        htmlFor="my-modal-3"
       >
         Connect Wallet
-      </label>
+      </button> */}
 
       {/* Put this part before </body> tag */}
-      <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+      <input type="checkbox" id="my-modal-9" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box relative bg-gray-300 dark:bg-black banner-shadow">
           <label
-            htmlFor="my-modal-3"
+            htmlFor="my-modal-9"
             className="btn btn-sm btn-circle absolute right-2 top-2"
           >
             ✕

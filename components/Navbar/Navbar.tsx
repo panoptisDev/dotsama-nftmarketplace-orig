@@ -192,7 +192,15 @@ export default function Navbar() {
                 </svg>
                 <h3 className="ml-1">ENG-USD</h3>
               </div>
-              <Connect />
+              {/* <Connect /> */}
+              <Link href={"/connect"}>
+                <button
+                  className="cursor-pointer bg-black xl:bg-gradient-to-r from-sky-950 via-sky-900 to-sky-800 text-white dark:text-white px-3 py-3 text-sm rounded-lg z-50"
+                  style={{ fontFamily: "VietnamSemiBold" }}
+                >
+                  Connect Wallet
+                </button>
+              </Link>
               <div className="flex items-center gap-3">
                 <svg
                   className="cursor-pointer"
@@ -386,9 +394,20 @@ export default function Navbar() {
               </svg>
             </Link>
           </div>
-          <div className="flex-none">
-            <div className="dropdown dropdown-end">
-              <label tabIndex={0} className="my-6">
+          <div className="flex flex-row items-center">
+            <div>
+              {/* <Connect /> */}
+              <Link href={"/connect"}>
+                <button
+                  className="cursor-pointer bg-black xl:bg-gradient-to-r from-sky-950 via-sky-900 to-sky-800 text-white dark:text-white px-3 py-3 text-sm rounded-lg z-50"
+                  style={{ fontFamily: "VietnamSemiBold" }}
+                >
+                  Connect Wallet
+                </button>
+              </Link>
+            </div>
+            <div className="dropdown dropdown-end ">
+              <label tabIndex={0} className="">
                 <button
                   className="btn btn-ghost btn-circle"
                   onClick={() => isSClicked(!sClicked)}
@@ -424,7 +443,7 @@ export default function Navbar() {
             </div>
 
             <div className="dropdown dropdown-end">
-              <label className="btn btn-ghost btn-circle avatar py-6">
+              <label className="btn btn-ghost btn-circle avatar my-6">
                 <button
                   tabIndex={0}
                   onClick={() => isClicked(!clicked)}
@@ -635,7 +654,6 @@ export default function Navbar() {
                         </tr>
                       </tbody>
                     </table>
-                    <Connect />
                   </div>
                 </li>
               </ul>
