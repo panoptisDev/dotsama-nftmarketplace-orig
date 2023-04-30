@@ -24,6 +24,9 @@ export default function RootLayout({
 }) {
   return (
     <html className="dark" lang="en">
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+      </head>
       <body cz-shortcut-listen="true">
         <WagmiConfig client={client}>
           <div className="bg-white dark:bg-black min-h-screen">

@@ -447,8 +447,8 @@ export default function ConnectPage() {
                   gradientUnits="userSpaceOnUse"
                   gradientTransform="translate(0.582922 0.917034) rotate(55.378) scale(29.7535 118.891)"
                 >
-                  <stop offset="0.051483" stop-color="#C549FF"></stop>
-                  <stop offset="0.815643" stop-color="#704BFF"></stop>
+                  <stop offset="0.051483" stopColor="#C549FF"></stop>
+                  <stop offset="0.815643" stopColor="#704BFF"></stop>
                 </radialGradient>
               </defs>
             </svg>

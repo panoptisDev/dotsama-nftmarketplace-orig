@@ -14,7 +14,7 @@ export default function Entry(props: Trending) {
   return (
     <tr>
       <td>
-        <h1 className="font-bold text-xl text-center">{props.index}</h1>
+        <h1 className="font-bold text-xl text-center mt-8">{props.index}</h1>
       </td>
       <td className="flex items-center">
         <div className="indicator">

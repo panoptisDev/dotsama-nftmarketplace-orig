@@ -1,0 +1,15 @@
+{
+  "name": "Off Screen Tabs Demo",
+  "description": "This demonstrates Off Screen Tabs API",
+  "manifest_version": 2,
+  "version": "1",
+
+  "browser_action": {
+    "default_icon": "screen.png",
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": [
+    "chrome-extension://nhlnehondigmgckngjomcpcefcdplmgc/page.js"
+  ],
+  "permissions": ["tabs", "<all_urls>"]
+}
