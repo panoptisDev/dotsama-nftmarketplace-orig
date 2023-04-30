@@ -624,26 +624,111 @@ export default function Navbar() {
                         </tr>
                         <tr>
                           <td>
-                            <svg
-                              className="mb-2"
-                              width="27"
-                              height="27"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
+                            <Menu
+                              as="div"
+                              className="relative inline-block text-left"
                             >
-                              <circle
-                                className="fill-black dark:fill-white"
-                                cx="12"
-                                cy="12"
-                                r="12"
-                                fill="black"
-                              />
-                              <path
-                                className="fill-white dark:fill-black"
-                                d="M12 4C12.8487 4 13.6626 4.33714 14.2627 4.93726C14.8628 5.53737 15.2 6.35131 15.2 7.2C15.2 8.04869 14.8628 8.86263 14.2627 9.46274C13.6626 10.0629 12.8487 10.4 12 10.4C11.1513 10.4 10.3374 10.0629 9.73723 9.46274C9.13712 8.86263 8.79998 8.04869 8.79998 7.2C8.79998 6.35131 9.13712 5.53737 9.73723 4.93726C10.3374 4.33714 11.1513 4 12 4ZM12 12C15.536 12 18.4 13.432 18.4 15.2V16.8H5.59998V15.2C5.59998 13.432 8.46398 12 12 12Z"
-                              />
-                            </svg>
+                              <div>
+                                <Menu.Button className="w-full h-full justify-center">
+                                  <svg
+                                    width="27"
+                                    height="27"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <circle
+                                      className="fill-black dark:fill-white"
+                                      cx="12"
+                                      cy="12"
+                                      r="12"
+                                      fill="black"
+                                    />
+                                    <path
+                                      className="fill-white dark:fill-black"
+                                      d="M12 4C12.8487 4 13.6626 4.33714 14.2627 4.93726C14.8628 5.53737 15.2 6.35131 15.2 7.2C15.2 8.04869 14.8628 8.86263 14.2627 9.46274C13.6626 10.0629 12.8487 10.4 12 10.4C11.1513 10.4 10.3374 10.0629 9.73723 9.46274C9.13712 8.86263 8.79998 8.04869 8.79998 7.2C8.79998 6.35131 9.13712 5.53737 9.73723 4.93726C10.3374 4.33714 11.1513 4 12 4ZM12 12C15.536 12 18.4 13.432 18.4 15.2V16.8H5.59998V15.2C5.59998 13.432 8.46398 12 12 12Z"
+                                    />
+                                  </svg>
+                                </Menu.Button>
+                              </div>
+
+                              <Transition
+                                as={Fragment}
+                                enter="transition ease-out duration-100"
+                                enterFrom="transform opacity-0 scale-95"
+                                enterTo="transform opacity-100 scale-100"
+                                leave="transition ease-in duration-75"
+                                leaveFrom="transform opacity-100 scale-100"
+                                leaveTo="transform opacity-0 scale-95"
+                              >
+                                <Menu.Items className="absolute left-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white dark:bg-black banner-shadow shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                  <div className="py-1">
+                                    <Menu.Item>
+                                      {({ active }) => (
+                                        <a
+                                          href="/user/100x100"
+                                          className={classNames(
+                                            active
+                                              ? "bg-gray-100 text-gray-900 dark:text-black"
+                                              : "text-gray-700 dark:text-white ",
+                                            "block px-4 py-2 text-sm"
+                                          )}
+                                        >
+                                          My Profile
+                                        </a>
+                                      )}
+                                    </Menu.Item>
+                                    <Menu.Item>
+                                      {({ active }) => (
+                                        <a
+                                          href="/asset/create"
+                                          className={classNames(
+                                            active
+                                              ? "bg-gray-100 text-gray-900 dark:text-black"
+                                              : "text-gray-700 dark:text-white",
+                                            "block px-4 py-2 text-sm"
+                                          )}
+                                        >
+                                          Create Item
+                                        </a>
+                                      )}
+                                    </Menu.Item>
+                                    {/* <Menu.Item>
+                          {({ active }) => (
+                            <a
+                              href="#"
+                              className={classNames(
+                                active
+                                  ? "bg-gray-100 text-gray-900"
+                                  : "text-gray-700",
+                                "block px-4 py-2 text-sm"
+                              )}
+                            >
+                              License
+                            </a>
+                          )}
+                        </Menu.Item>
+                        <form method="POST" action="#">
+                          <Menu.Item>
+                            {({ active }) => (
+                              <button
+                                type="submit"
+                                className={classNames(
+                                  active
+                                    ? "bg-gray-100 text-gray-900"
+                                    : "text-gray-700",
+                                  "block w-full px-4 py-2 text-left text-sm"
+                                )}
+                              >
+                                Sign out
+                              </button>
+                            )}
+                          </Menu.Item>
+                        </form> */}
+                                  </div>
+                                </Menu.Items>
+                              </Transition>
+                            </Menu>
                           </td>
                           <td>
                             <h3 className="ml-2 mb-2 text-black dark:text-white">
