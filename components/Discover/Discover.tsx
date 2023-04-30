@@ -439,7 +439,7 @@ export default function Discover() {
                   className="modal-toggle"
                 />
                 <div className="modal">
-                  <div className="modal-box w-11/12 max-w-xs bg-white dark:bg-gray-800 banner-shadow">
+                  <div className="modal-box w-11/12 max-w-xs bg-white dark:bg-black banner-shadow">
                     <h3 className="font-bold text-lg mb-2 text-center">
                       Filter
                     </h3>
@@ -448,11 +448,11 @@ export default function Discover() {
                         <Listbox value={selected} onChange={setSelected}>
                           {({ open }) => (
                             <>
-                              <Listbox.Label className="block text-sm font-medium leading-6 text-gray-900">
+                              <Listbox.Label className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
                                 Type
                               </Listbox.Label>
                               <div className="relative mt-1">
-                                <Listbox.Button className="relative w-52 cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
+                                <Listbox.Button className="relative w-52 cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm border border-gray-500  sm:text-sm sm:leading-6">
                                   <span className="flex items-center">
                                     <span className=" block truncate">
                                       {selected.name}
@@ -534,11 +534,11 @@ export default function Discover() {
                         <Listbox value={selected2} onChange={setSelected2}>
                           {({ open }) => (
                             <>
-                              <Listbox.Label className="block text-sm font-medium leading-6 text-gray-900">
+                              <Listbox.Label className="block text-sm font-medium leading-6 text-gray-900 dark:text-white">
                                 Sort
                               </Listbox.Label>
                               <div className="relative mt-1">
-                                <Listbox.Button className="relative w-52 cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
+                                <Listbox.Button className="relative w-52 cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm border border-gray-500  sm:text-sm sm:leading-6">
                                   <span className="flex items-center">
                                     <span className=" block truncate">
                                       {selected2.name}
@@ -618,28 +618,36 @@ export default function Discover() {
                     <div className="flex justify-center">
                       <div className="form-control">
                         <label className="label">
-                          <span className="label-text">Price</span>
+                          <span className="label-text text-black dark:text-white">
+                            Price
+                          </span>
                         </label>
                         <label className="input-group gap-x-4">
                           <input
                             type="number"
                             placeholder="MIN"
-                            className="input input-bordered w-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                            className="input input-bordered w-20 text-gray-900 bg-gray-200 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6"
                           />
                           <span className="p-0 m-0 bg-transparent">To</span>
                           <input
                             type="number"
                             placeholder="MAX"
-                            className="input input-bordered w-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                            className="input input-bordered w-20 text-gray-900 bg-gray-200 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6"
                           />
                         </label>
                       </div>
                     </div>
-                    <div className="modal-action justify-center">
-                      <label htmlFor="my-modal-5" className="btn">
+                    <div className="modal-action justify-center items-center gap-x-5">
+                      <label
+                        htmlFor="my-modal-5"
+                        className="bg-gray-200 border border-gray-400 rounded-lg text-black dark:text-gray-900 hover:bg-gray-200 px-3 py-1 cursor-pointer"
+                      >
                         Apply
                       </label>
-                      <label htmlFor="my-modal-5" className="btn">
+                      <label
+                        htmlFor="my-modal-5"
+                        className="border-0 text-black dark:text-gray-300 p-0"
+                      >
                         Close
                       </label>
                     </div>
