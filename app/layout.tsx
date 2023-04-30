@@ -1,9 +1,15 @@
 "use client";
-import Navbar from "@/components/Navbar/Navbar";
+// import Navbar from "@/components/Navbar/Navbar";
 import "./globalsSheet.css";
 import Footer from "@/components/Footer/Footer";
 import { WagmiConfig, createClient, configureChains, mainnet } from "wagmi";
 import { publicProvider } from "wagmi/providers/public";
+import dynamic from "next/dynamic";
+
+const DynamicComponentWithNoSSR = dynamic(
+  () => import("@/components/Navbar/Navbar"),
+  { ssr: false }
+);
 
 const { chains, provider, webSocketProvider } = configureChains(
   [mainnet],
@@ -27,7 +33,7 @@ export default function RootLayout({
         <WagmiConfig client={client}>
           <div className="bg-white dark:bg-black min-h-screen">
             <div className="relative z-10">
-              <Navbar />
+              <DynamicComponentWithNoSSR />
               {children}
               <Footer />
             </div>
