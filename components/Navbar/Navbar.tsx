@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef, Fragment } from "react";
+import { useState, useEffect, Fragment } from "react";
 import Image from "next/image";
 import lightLogo from "../../public/assets/images/light-logo.png";
 import logo from "../../public/assets/images/logo.png";
