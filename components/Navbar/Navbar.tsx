@@ -398,7 +398,7 @@ export default function Navbar() {
               {/* <Connect /> */}
               <Link href={"/connect"}>
                 <button
-                  className="cursor-pointer bg-black xl:bg-gradient-to-r from-sky-950 via-sky-900 to-sky-800 text-white dark:text-white px-3 py-3 text-sm rounded-lg z-50"
+                  className="cursor-pointer bg-black xl:bg-gradient-to-r from-sky-950 via-sky-900 to-sky-800 text-white dark:text-white px-3 py-3 text-sm rounded-lg"
                   style={{ fontFamily: "VietnamSemiBold" }}
                 >
                   Connect Wallet
@@ -442,7 +442,7 @@ export default function Navbar() {
             </div>
 
             <div className="dropdown dropdown-end">
-              <label className="btn btn-ghost btn-circle avatar my-6">
+              <label className="btn btn-ghost btn-circle avatar my-8">
                 <button
                   tabIndex={0}
                   onClick={() => isClicked(!clicked)}

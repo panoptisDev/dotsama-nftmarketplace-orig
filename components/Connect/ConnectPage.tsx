@@ -6,9 +6,11 @@ import { web3Accounts, web3Enable } from "@polkadot/extension-dapp";
 import { InjectedAccountWithMeta } from "@polkadot/extension-inject/types";
 import Image from "next/image";
 import subwallet from "../../public/assets/images/connect/subwallet.png";
+import novawallet from "../../public/assets/images/connect/nova.png";
 import Link from "next/link";
 import type { InjectedExtension } from "@polkadot/extension-inject/types";
 import { objectSpread } from "@polkadot/util";
+const { ApiPromise, WsProvider } = require("@polkadot/api");
 
 interface InjectedAccountExt {
   address: string;
@@ -52,17 +54,7 @@ export default function ConnectPage() {
     }
   };
 
-  // const extensions = await web3Enable("DotsamaNFT");
-  // if (!extensions) {
-  //   throw Error("NO_EXTENSIONS_FOUND");
-  // }
-
-  // const allAccounts = await web3Accounts();
-  // console.log(allAccounts);
-  // if (allAccounts.length === 1) {
-  //   setSelectedAccount(allAccounts[0]);
-  // }
-  async function handleConnectionFearless(): Promise<InjectedAccountExt[]> {
+  async function handleConnectionNova(): Promise<InjectedAccountExt[]> {
     try {
       const injectedPromise = web3Enable("DotsamaNFT");
       await injectedPromise;
@@ -87,6 +79,21 @@ export default function ConnectPage() {
     }
   }
 
+  async function connectToFearlessWallet(): Promise<void> {
+    try {
+      const provider = new WsProvider("wss://rpc.polkadot.io");
+      const api = await ApiPromise.create({ provider });
+
+      const extensions = await web3Enable("DotsamaNFT");
+
+      if (extensions.length === 0) {
+        throw new Error("No wallet found");
+      }
+    } catch (e) {
+      alert(e);
+    }
+  }
+
   const handleConnectionSubWallet = async () => {
     const wallet = (window as any).SubWallet;
 
@@ -102,13 +109,16 @@ export default function ConnectPage() {
     }
   };
   return (
-    <div className="my-10">
-      <div className="">
-        <h3 className="text-lg font-bold mb-5 text-center text-black dark:text-white">
+    <div className="my-10 md:my-14 flex justify-center items-center">
+      <div className="w-5/6 md:w-1/2">
+        <h1 className="text-2xl font-bold mb-10 text-center text-black dark:text-white">
           Connect Wallet
-        </h3>
-        <div className="grid grid-cols-2">
-          <div className="flex flex-col gap-y-10 items-center justify-center">
+        </h1>
+        <div className="grid grid-cols-2 gap-y-10 gap-x-5">
+          <div
+            className="cursor-pointer flex flex-col items-center justify-center gap-y-4 text-black dark:text-white p-5 shadow-xl"
+            onClick={() => connect()}
+          >
             <svg
               className="cursor-pointer"
               onClick={() => connect()}
@@ -251,55 +261,69 @@ export default function ConnectPage() {
               Metamask
             </h3>
           </div>
-          <div className="flex flex-col items-center justify-center">
+          <div
+            className="cursor-pointer flex flex-col items-center justify-center gap-y-4 text-black dark:text-white p-5 shadow-xl"
+            onClick={() => handleConnectionTalisman()}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="80"
               height="80"
-              viewBox="0 0 156 32"
+              viewBox="0 0 24 24"
               fill="none"
             >
-              <path
-                d="M42.6574 25.9819H46.4739V8.71953H53.7253V5.43146H35.5234V8.71953H42.6574V25.9819Z"
-                fill="black"
-              />
-              <path
-                d="M51.4838 22.2241C51.4838 24.8076 53.3627 26.4223 56.181 26.4223C58.559 26.4223 60.0562 25.0131 60.6728 22.9287H61.9351C61.9939 25.2186 62.5517 25.9819 64.959 25.9819H66.4856V23.1636H65.1058C64.3425 23.1636 64.225 23.0168 64.225 22.2828V16.3819C64.225 12.8296 62.0232 10.9214 58.0012 10.9214C54.0379 10.9214 51.5718 13.0351 51.2783 15.237L54.537 16.0883C54.9186 14.5911 56.0049 13.6516 58.0012 13.6516C59.8507 13.6516 60.6728 14.4443 60.6728 15.9415V16.4406C57.8838 16.7049 55.6526 17.2626 53.9792 18.1434C52.3058 18.9948 51.4838 20.3746 51.4838 22.2241ZM60.6728 19.9636C60.6728 22.459 59.1461 23.7214 57.326 23.7214C55.9168 23.7214 55.1241 23.0461 55.1241 21.8718C55.1241 19.9929 57.1792 19.1709 60.6728 18.7893V19.9636Z"
-                fill="black"
-              />
-              <path
-                d="M68.8209 25.9819H72.4026V5.43146H68.8209V25.9819Z"
-                fill="black"
-              />
-              <path
-                d="M76.6443 9.04247H80.4608V5.4021H76.6443V9.04247ZM76.7911 25.9819H80.3434V11.3617H76.7911V25.9819Z"
-                fill="black"
-              />
-              <path
-                d="M83.3835 22.2241C84.0294 24.8076 86.789 26.3929 90.0771 26.3929C94.0991 26.3929 96.5358 24.5434 96.5358 21.6957C96.5358 20.3452 96.0367 19.3177 95.0679 18.6131C94.0991 17.9085 92.9248 17.4094 91.545 17.1452L89.6367 16.7929C87.8753 16.4406 87.4055 16.0003 87.4055 15.1489C87.4055 14.1801 88.2569 13.5049 89.8129 13.5049C91.4863 13.5049 92.5432 14.4737 93.0129 15.736L96.0367 14.4443C95.3615 12.6535 93.4239 10.9214 89.9303 10.9214C86.4367 10.9214 84 12.7709 84 15.4718C84 18.2315 85.7615 19.259 88.7267 19.8755L90.6643 20.2278C92.3083 20.5507 92.8367 21.1379 92.8367 22.048C92.8367 23.0755 91.8973 23.7214 90.2239 23.7214C87.9046 23.7214 86.9652 22.4296 86.701 21.1379L83.3835 22.2241Z"
-                fill="black"
-              />
-              <path
-                d="M99.7269 25.9819H103.309V18.7599C103.309 17.1159 103.426 15.7654 104.336 14.7085C104.776 14.1801 105.452 13.9159 106.362 13.9159C108.123 13.9159 109.004 14.9727 109.004 17.0571V25.9819H112.527V18.7599C112.527 17.0865 112.615 15.7654 113.525 14.7085C113.965 14.1801 114.67 13.9159 115.58 13.9159C117.253 13.9159 118.222 14.914 118.222 17.0571V25.9819H121.775V16.4406C121.775 12.8883 119.72 10.9214 116.901 10.9214C114.905 10.9214 113.29 12.3305 112.674 14.3562H111.411C110.912 12.1544 109.356 10.9214 107.389 10.9214C105.246 10.9214 103.984 12.3599 103.426 14.3562H101.753C102.369 13.5049 102.898 12.2131 102.898 11.3617H99.7269V25.9819Z"
-                fill="black"
-              />
-              <path
-                d="M125.079 22.2241C125.079 24.8076 126.958 26.4223 129.776 26.4223C132.154 26.4223 133.651 25.0131 134.268 22.9287H135.53C135.589 25.2186 136.147 25.9819 138.554 25.9819H140.081V23.1636H138.701C137.938 23.1636 137.82 23.0168 137.82 22.2828V16.3819C137.82 12.8296 135.618 10.9214 131.596 10.9214C127.633 10.9214 125.167 13.0351 124.873 15.237L128.132 16.0883C128.514 14.5911 129.6 13.6516 131.596 13.6516C133.446 13.6516 134.268 14.4443 134.268 15.9415V16.4406C131.479 16.7049 129.248 17.2626 127.574 18.1434C125.901 18.9948 125.079 20.3746 125.079 22.2241ZM134.268 19.9636C134.268 22.459 132.741 23.7214 130.921 23.7214C129.512 23.7214 128.719 23.0461 128.719 21.8718C128.719 19.9929 130.774 19.1709 134.268 18.7893V19.9636Z"
-                fill="black"
-              />
-              <path
-                d="M142.416 25.9819H145.998V19.2883C145.998 17.5269 146.115 16.0003 147.084 14.826C147.583 14.2094 148.346 13.9159 149.345 13.9159C151.018 13.9159 151.987 14.9434 151.987 17.0571V25.9819H155.568V16.3526C155.568 12.9764 153.836 10.9214 150.548 10.9214C148.141 10.9214 146.614 12.7709 145.968 14.7379H144.295C145.117 13.5342 145.704 12.2131 145.734 11.3617H142.416V25.9819Z"
-                fill="black"
-              />
+              <rect width="24" height="24" rx="4" fill="#D5FF5C" />
               <path
                 fillRule="evenodd"
                 clipRule="evenodd"
-                d="M26.7728 18.2123C26.2575 18.7275 25.362 18.4936 25.0579 17.8314C24.998 17.7009 24.9654 17.5609 24.9654 17.4173L24.9654 6C24.9654 4.61928 23.8461 3.49999 22.4654 3.49999C21.0846 3.49999 19.9654 4.61928 19.9654 6L19.9654 11.7786C19.9654 12.2755 19.4563 12.6128 18.9825 12.4631C18.6827 12.3683 18.466 12.0953 18.466 11.7808L18.466 2.50001C18.466 1.11929 17.3467 -3.62118e-07 15.966 0C14.5853 3.62118e-07 13.466 1.11929 13.466 2.50001L13.466 11.7801C13.466 12.0948 13.2492 12.368 12.9491 12.4628C12.475 12.6126 11.9657 12.2751 11.9657 11.7779L11.9657 5.99999C11.9657 4.61928 10.8464 3.49998 9.46569 3.49999C8.08497 3.49999 6.96568 4.61928 6.96568 6L6.96569 17.4211C6.96569 17.562 6.93369 17.6994 6.87484 17.8274C6.57705 18.4751 5.70193 18.7018 5.19784 18.1977L4.26779 17.2677C3.29147 16.2914 1.70855 16.2914 0.732237 17.2677C-0.24408 18.244 -0.244078 19.8269 0.732238 20.8033L8.08179 28.1528C9.91204 30.4946 12.763 32 15.9655 32C19.0348 32 21.7812 30.6172 23.6156 28.4406L31.2529 20.8032C32.2292 19.8269 32.2292 18.244 31.2529 17.2677C30.2766 16.2914 28.6937 16.2914 27.7173 17.2677L26.7728 18.2123ZM15.9649 28.0001C20.3832 28.0001 23.965 23.0001 23.965 23.0001C23.965 23.0001 20.3832 18 15.9649 18C11.5466 18 7.96487 23.0001 7.96487 23.0001C7.96487 23.0001 11.5466 28.0001 15.9649 28.0001Z"
-                fill="black"
+                d="M16.5349 12.9159C16.6871 13.2472 17.135 13.3643 17.3929 13.1065L17.8651 12.6345C18.3535 12.1464 19.1453 12.1464 19.6337 12.6345C20.1221 13.1227 20.1221 13.9141 19.6337 14.4023L15.8097 18.2246C14.8921 19.3104 13.5198 20 11.9865 20C10.3851 20 8.95942 19.2478 8.04385 18.0777L4.36629 14.4018C3.87791 13.9136 3.87791 13.1222 4.36629 12.634C4.85467 12.1459 5.64649 12.1459 6.13487 12.634L6.60044 13.0994C6.85253 13.3514 7.29002 13.238 7.43894 12.9141V12.9141C7.46838 12.8501 7.48439 12.7814 7.48439 12.711L7.48438 7.00059C7.48438 6.30991 8.04428 5.75001 8.73496 5.75001C9.42563 5.75001 9.98553 6.30991 9.98553 7.00058L9.98553 9.88892C9.98553 10.1376 10.2403 10.3065 10.4774 10.2315V10.2315C10.6276 10.1841 10.736 10.0474 10.736 9.89001L10.736 5.25041C10.736 4.55974 11.2959 3.99984 11.9866 3.99984C12.6773 3.99984 13.2372 4.55974 13.2372 5.25041L13.2372 9.89018C13.2372 10.0476 13.3456 10.1842 13.4957 10.2316V10.2316C13.7327 10.3065 13.9874 10.1377 13.9874 9.88909L13.9874 7.00059C13.9874 6.30991 14.5473 5.75001 15.2379 5.75001C15.9286 5.75001 16.4885 6.30991 16.4885 7.00058L16.4885 12.7086C16.4885 12.7805 16.5049 12.8506 16.5349 12.9159V12.9159Z"
+                fill="#FD4848"
               />
               <path
-                d="M18.9659 23.0007C18.9659 24.6576 17.6227 26.0008 15.9658 26.0008C14.309 26.0008 12.9658 24.6576 12.9658 23.0007C12.9658 21.3439 14.309 20.0007 15.9658 20.0007C17.6227 20.0007 18.9659 21.3439 18.9659 23.0007Z"
-                fill="black"
+                d="M15.9885 15.5C15.9885 15.5 14.1969 18 11.9867 18C9.77655 18 7.98486 15.5 7.98486 15.5C7.98486 15.5 9.77655 13 11.9867 13C14.1969 13 15.9885 15.5 15.9885 15.5Z"
+                fill="#D5FF5C"
+              />
+              <path
+                d="M13.8543 15.5C13.8543 16.5311 13.018 17.3671 11.9863 17.3671C10.9545 17.3671 10.1183 16.5311 10.1183 15.5C10.1183 14.4689 10.9545 13.6329 11.9863 13.6329C13.018 13.6329 13.8543 14.4689 13.8543 15.5Z"
+                stroke="#FD4848"
+                strokeWidth="0.265831"
+              />
+              <path
+                d="M13.1041 15.5C13.1041 16.1169 12.6037 16.6171 11.9864 16.6171C11.3691 16.6171 10.8688 16.1169 10.8688 15.5C10.8688 14.8831 11.3691 14.3829 11.9864 14.3829C12.6037 14.3829 13.1041 14.8831 13.1041 15.5Z"
+                stroke="#FD4848"
+                strokeWidth="0.265831"
+              />
+              <path
+                d="M14.605 15.5C14.605 16.9453 13.4327 18.1171 11.9866 18.1171C10.5405 18.1171 9.36827 16.9453 9.36827 15.5C9.36827 14.0547 10.5405 12.8829 11.9866 12.8829C13.4327 12.8829 14.605 14.0547 14.605 15.5Z"
+                stroke="#FD4848"
+                strokeWidth="0.265831"
+              />
+              <path
+                d="M15.3552 15.5C15.3552 17.3595 13.847 18.8671 11.9865 18.8671C10.1259 18.8671 8.61778 17.3595 8.61778 15.5C8.61778 13.6405 10.1259 12.1329 11.9865 12.1329C13.847 12.1329 15.3552 13.6405 15.3552 15.5Z"
+                stroke="#FD4848"
+                strokeWidth="0.265831"
+              />
+              <path
+                d="M12.3534 15.5C12.3534 15.7027 12.1891 15.8671 11.9863 15.8671C11.7836 15.8671 11.6192 15.7027 11.6192 15.5C11.6192 15.2973 11.7836 15.1329 11.9863 15.1329C12.1891 15.1329 12.3534 15.2973 12.3534 15.5Z"
+                fill="#162BEB"
+                stroke="#FD4848"
+                strokeWidth="0.265831"
+              />
+              <ellipse
+                cx="11.9863"
+                cy="15.5"
+                rx="0.5"
+                ry="0.5"
+                fill="#FD4848"
+              />
+              <mask id="path-10-inside-1_4684_17034" fill="white">
+                <path d="M15.9885 15.5C15.9885 15.5 14.1969 18 11.9867 18C9.77655 18 7.98486 15.5 7.98486 15.5C7.98486 15.5 9.77655 13 11.9867 13C14.1969 13 15.9885 15.5 15.9885 15.5Z" />
+              </mask>
+              <path
+                d="M15.9885 15.5C15.9885 15.5 14.1969 18 11.9867 18C9.77655 18 7.98486 15.5 7.98486 15.5C7.98486 15.5 9.77655 13 11.9867 13C14.1969 13 15.9885 15.5 15.9885 15.5Z"
+                stroke="#D5FF5C"
+                strokeWidth="0.531663"
+                mask="url(#path-10-inside-1_4684_17034)"
               />
             </svg>
             <h3
@@ -310,7 +334,10 @@ export default function ConnectPage() {
             </h3>
           </div>
 
-          <div className="flex flex-col items-center justify-center">
+          <div
+            className="cursor-pointer flex flex-col items-center justify-center gap-y-4 text-black dark:text-white p-5 shadow-xl"
+            onClick={() => handleConnectionSubWallet()}
+          >
             <Image
               onClick={() => handleConnectionSubWallet()}
               className="w-[80px] h-[80px] cursor-pointer"
@@ -325,10 +352,30 @@ export default function ConnectPage() {
             </h3>
           </div>
 
-          <div className="flex flex-col items-center justify-center">
+          <div
+            className="cursor-pointer flex flex-col items-center justify-center gap-y-4 text-black dark:text-white p-5 shadow-xl"
+            onClick={() => handleConnectionNova()}
+          >
+            <Image
+              className="w-[80px] h-[80px] rounded-lg"
+              src={novawallet}
+              alt="nova"
+            />
+            <h3
+              className="cursor-pointer"
+              onClick={() => handleConnectionNova()}
+            >
+              Nova Wallet
+            </h3>
+          </div>
+
+          <div
+            className="cursor-pointer flex flex-col items-center justify-center gap-y-4 text-black dark:text-white p-5 shadow-xl"
+            onClick={() => connectToFearlessWallet()}
+          >
             <svg
               className="cursor-pointer"
-              onClick={() => handleConnectionFearless()}
+              onClick={() => connectToFearlessWallet()}
               xmlns="http://www.w3.org/2000/svg"
               width="80"
               height="80"
@@ -342,7 +389,7 @@ export default function ConnectPage() {
             </svg>
             <h3
               className="cursor-pointer"
-              onClick={() => handleConnectionFearless()}
+              onClick={() => connectToFearlessWallet()}
             >
               Fearless Wallet
             </h3>
