@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAccount, useConnect } from "wagmi";
 import { MetaMaskConnector } from "wagmi/connectors/metaMask";
 import { web3Accounts, web3Enable } from "@polkadot/extension-dapp";
@@ -22,6 +22,11 @@ interface InjectedAccountExt {
 }
 
 export default function ConnectPage() {
+  const [metamask, isMetamask] = useState<boolean>(true);
+  const [talisman, isTalisman] = useState<boolean>(true);
+  const [sub, isSub] = useState<boolean>(true);
+  const [nova, isNova] = useState<boolean>(true);
+  const [enkrypt, isEnkrypt] = useState<boolean>(true);
   const [selectedAccount, setSelectedAccount] =
     useState<InjectedAccountWithMeta>();
   const [accounts, setAccounts] = useState<InjectedAccountWithMeta[]>([]);
@@ -29,6 +34,28 @@ export default function ConnectPage() {
   const { connect } = useConnect({
     connector: new MetaMaskConnector(),
   });
+
+  useEffect(() => {
+    const checkWallets = () => {
+      if (!(window as any).talismanEth) {
+        isTalisman(false);
+      }
+
+      if (!(window as any).SubWallet) {
+        isSub(false);
+      }
+
+      if (!(window as any).ethereum) {
+        isMetamask(false);
+      }
+
+      if (!(window as any).injectedWeb3) {
+        isNova(false);
+        isEnkrypt(false);
+      }
+    };
+    checkWallets();
+  }, []);
 
   const handleConnectionTalisman = async () => {
     // const extensions = await web3Enable("DotsamaNFT");
@@ -79,18 +106,16 @@ export default function ConnectPage() {
     }
   }
 
-  async function connectToFearlessWallet(): Promise<void> {
-    try {
-      const provider = new WsProvider("wss://rpc.polkadot.io");
-      const api = await ApiPromise.create({ provider });
+  async function connectToEnkryptWallet(): Promise<void> {
+    const extensions = await web3Enable("DotsamaNFT");
+    if (!extensions) {
+      throw Error("NO_EXTENSIONS_FOUND");
+    }
 
-      const extensions = await web3Enable("DotsamaNFT");
-
-      if (extensions.length === 0) {
-        throw new Error("No wallet found");
-      }
-    } catch (e) {
-      alert(e);
+    const allAccounts = await web3Accounts();
+    console.log(allAccounts);
+    if (allAccounts.length === 1) {
+      setSelectedAccount(allAccounts[0]);
     }
   }
 
@@ -114,14 +139,14 @@ export default function ConnectPage() {
         <h1 className="text-2xl font-bold mb-10 text-center text-black dark:text-white">
           Connect Wallet
         </h1>
-        <div className="grid grid-cols-2 gap-y-10 gap-x-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-5">
           <div
             className="cursor-pointer flex flex-col items-center justify-center gap-y-4 text-black dark:text-white p-5 shadow-xl"
             onClick={() => connect()}
           >
             <svg
-              className="cursor-pointer"
               onClick={() => connect()}
+              className="cursor-pointer"
               xmlns="http://www.w3.org/2000/svg"
               width="80"
               height="80"
@@ -257,15 +282,21 @@ export default function ConnectPage() {
                 </g>
               </g>
             </svg>
-            <h3 className="cursor-pointer" onClick={() => connect()}>
-              Metamask
-            </h3>
+            <h3 className="cursor-pointer">Metamask</h3>
+            {!metamask && (
+              <Link target="_blank" href={"https://metamask.io/download/"}>
+                <button className="px-2 py-1 bg-gray-300 rounded-2xl text-gray-500 text-sm">
+                  INSTALL
+                </button>
+              </Link>
+            )}
           </div>
           <div
             className="cursor-pointer flex flex-col items-center justify-center gap-y-4 text-black dark:text-white p-5 shadow-xl"
             onClick={() => handleConnectionTalisman()}
           >
             <svg
+              onClick={() => handleConnectionTalisman()}
               xmlns="http://www.w3.org/2000/svg"
               width="80"
               height="80"
@@ -326,12 +357,14 @@ export default function ConnectPage() {
                 mask="url(#path-10-inside-1_4684_17034)"
               />
             </svg>
-            <h3
-              className="cursor-pointer"
-              onClick={() => handleConnectionTalisman()}
-            >
-              Talisman Wallet
-            </h3>
+            <h3 className="cursor-pointer">Talisman Wallet</h3>
+            {!talisman && (
+              <Link target="_blank" href={"https://www.talisman.xyz/"}>
+                <button className="px-2 py-1 bg-gray-300 rounded-2xl text-gray-500 text-sm">
+                  INSTALL
+                </button>
+              </Link>
+            )}
           </div>
 
           <div
@@ -344,12 +377,17 @@ export default function ConnectPage() {
               src={subwallet}
               alt="subwallet"
             />
-            <h3
-              className="cursor-pointer"
-              onClick={() => handleConnectionSubWallet()}
-            >
-              SubWallet
-            </h3>
+            <h3 className="cursor-pointer">SubWallet</h3>
+            {!sub && (
+              <Link
+                target="_blank"
+                href={"https://subwallet.app/download.html"}
+              >
+                <button className="px-2 py-1 bg-gray-300 rounded-2xl text-gray-500 text-sm">
+                  INSTALL
+                </button>
+              </Link>
+            )}
           </div>
 
           <div
@@ -357,42 +395,71 @@ export default function ConnectPage() {
             onClick={() => handleConnectionNova()}
           >
             <Image
+              onClick={() => handleConnectionNova()}
               className="w-[80px] h-[80px] rounded-lg"
               src={novawallet}
               alt="nova"
             />
-            <h3
-              className="cursor-pointer"
-              onClick={() => handleConnectionNova()}
-            >
-              Nova Wallet
-            </h3>
+            <h3 className="cursor-pointer">Nova Wallet</h3>
+            {!nova && (
+              <Link
+                target="_blank"
+                href={"https://subwallet.app/download.html"}
+              >
+                <button className="px-2 py-1 bg-gray-300 rounded-2xl text-gray-500 text-sm">
+                  INSTALL
+                </button>
+              </Link>
+            )}
           </div>
 
           <div
             className="cursor-pointer flex flex-col items-center justify-center gap-y-4 text-black dark:text-white p-5 shadow-xl"
-            onClick={() => connectToFearlessWallet()}
+            onClick={() => connectToEnkryptWallet()}
           >
             <svg
-              className="cursor-pointer"
-              onClick={() => connectToFearlessWallet()}
-              xmlns="http://www.w3.org/2000/svg"
-              width="80"
+              onClick={() => connectToEnkryptWallet()}
+              data-v-50a5d661=""
+              width="100"
               height="80"
-              viewBox="0 0 32 32"
+              viewBox="0 0 133 24"
               fill="none"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M31.6315 11.3153L19.2596 12.9247C19.189 12.9339 19.1232 12.9658 19.0729 13.0156L18.0545 14.0177C17.9278 14.1427 17.7231 14.1427 17.596 14.0177L17.4177 13.8421C17.2898 13.7163 17.2898 13.5114 17.4177 13.3856L18.6334 12.1894C18.7614 12.0636 18.7614 11.8587 18.6334 11.7329L16.2289 9.36641C16.1023 9.24147 15.8975 9.24147 15.7705 9.36641L13.366 11.7329C13.238 11.8587 13.238 12.0636 13.366 12.1894L14.5817 13.3856C14.7097 13.5114 14.7097 13.7163 14.5817 13.8421L14.4034 14.0177C14.2768 14.1427 14.072 14.1427 13.9449 14.0177L12.9265 13.0156C12.8757 12.9658 12.8104 12.9339 12.7398 12.9247L0.368384 11.3153C0.0599368 11.2751 -0.123632 11.6455 0.097003 11.8627L2.79493 14.518C3.00056 14.7202 2.85582 15.068 2.56591 15.068C2.27599 15.068 2.13126 15.4157 2.33689 15.618L4.86581 18.1068C4.90728 18.1474 4.95936 18.1767 5.01584 18.1907L13.6241 20.327C13.6938 20.3444 13.7561 20.3842 13.8006 20.4401L15.1324 22.1151C15.3698 22.4397 15.7709 22.8154 15.7709 22.8154C15.8975 22.9403 16.1023 22.9403 16.2294 22.8154C16.2294 22.8154 16.5612 22.4833 16.8679 22.1151L18.1997 20.4401C18.2442 20.3842 18.306 20.3444 18.3762 20.327L26.9845 18.1907C27.0414 18.1767 27.093 18.1474 27.1345 18.1068L29.6634 15.618C29.869 15.4157 29.7243 15.068 29.4344 15.068C29.1445 15.068 28.9997 14.7202 29.2054 14.518L31.9033 11.8627C32.1235 11.6455 31.9399 11.2755 31.6315 11.3153Z"
-                fill="#ED145B"
-              />
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M64.3409 7.59559C64.6278 7.21977 65.0733 6.99915 65.5458 6.99915H69.0673L63.941 13.2607L69.0673 19.5243H65.527C65.0528 19.5243 64.6062 19.3026 64.3197 18.925L60.8968 14.4132V19.5243H58.2131C57.6974 19.5243 57.2795 19.1064 57.2795 18.5909V3.72918C57.2795 3.21365 57.6974 2.79559 58.2131 2.79559H60.8968V12.1105L64.3409 7.59559ZM50.453 6.68279C48.9992 6.68279 47.837 7.33019 47.0616 8.2415V6.99909H44.3779C43.8624 6.99909 43.4444 7.41715 43.4444 7.93286V18.5908C43.4444 19.1064 43.8624 19.5244 44.3779 19.5244H47.0616V12.1088C47.0616 10.8653 47.9434 9.96095 49.2321 9.96095C50.5435 9.96095 51.2215 10.6618 51.2215 12.1991V19.5244H53.9054C54.4211 19.5244 54.839 19.1064 54.839 18.5908V11.1592C54.839 8.35591 53.1661 6.68279 50.453 6.68279ZM87.9242 7.62581L85.4066 14.8556L82.8892 7.62581C82.7586 7.2507 82.4048 6.99908 82.0076 6.99908H78.805L83.5302 19.1853L81.6081 23.7862H84.5062C84.9205 23.7862 85.2926 23.5334 85.4455 23.1481L91.85 6.99908H88.8058C88.4086 6.99908 88.0547 7.2507 87.9242 7.62581ZM113.643 16.54C112.388 16.54 111.812 15.9646 111.812 14.7092V9.98365H114.732C115.247 9.98365 115.665 9.5656 115.665 9.05006V6.99916H111.812V3.30882H109.264C108.748 3.30882 108.33 3.72687 108.33 4.24223V6.99916H107.478C106.962 6.99916 106.544 7.41722 106.544 7.93275V9.98365H108.308V14.9353C108.308 17.933 110 19.5243 112.772 19.5243H114.848C115.364 19.5243 115.782 19.1063 115.782 18.5909V16.54H113.643ZM35.3774 9.53129C33.994 9.53129 32.7951 10.5262 32.4492 11.9258H37.7984C37.7754 10.4811 36.7378 9.53129 35.3774 9.53129ZM28.9907 13.3072C28.9907 9.32796 31.8497 6.68276 35.4005 6.68276C38.6515 6.68276 41.3029 8.87569 41.3029 13.0582C41.3029 13.2569 41.2984 13.4467 41.2877 13.6434C41.2624 14.1027 40.874 14.4623 40.4048 14.4623H32.5183C33.0025 16.0654 34.4167 16.5401 36.3534 16.5401H40.4873V18.5908C40.4873 19.1063 40.0694 19.5244 39.5539 19.5244H35.8922C31.3962 19.5244 28.9907 17.1053 28.9907 13.3072ZM99.4057 16.584C97.7328 16.584 96.5121 15.2049 96.5121 13.2609C96.5121 11.3166 97.7328 9.9375 99.4284 9.9375C101.124 9.9375 102.367 11.3166 102.367 13.2383C102.367 15.1598 101.124 16.584 99.4057 16.584ZM100.423 6.68214C98.7708 6.68214 97.4022 7.4746 96.5574 8.59387V6.99863H93.8737C93.358 6.99863 92.9403 7.41651 92.9403 7.93204V22.8508C92.9403 23.3665 93.3582 23.7842 93.8737 23.7842H96.5574V17.6919C97.326 18.9803 98.8631 19.8394 100.491 19.8394C103.43 19.8394 106.03 17.2849 106.03 13.2608C106.03 9.25927 103.339 6.68214 100.423 6.68214ZM73.8309 8.35592C74.6221 7.46314 75.2947 6.82233 76.8452 6.82233C78.1286 6.82233 78.2043 7.41717 78.2043 7.9327V9.95848C75.4691 9.534 73.8309 10.3895 73.8309 12.7407V19.5243H71.147C70.6315 19.5243 70.2135 19.1064 70.2135 18.5908V7.9327C70.2135 7.41717 70.6315 6.99911 71.147 6.99911H73.8309V8.35592Z"
+                fill="#684CFF"
+              ></path>
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M0 5.54104C0 3.30909 1.80927 1.5 4.04104 1.5H21V4.60068C21 6.20484 19.6997 7.50516 18.0955 7.50516H10.1221C7.89016 7.50516 6.08108 9.31443 6.08108 11.5464V12.5746C6.08108 14.8066 7.89016 16.6156 10.1221 16.6156H18.0955C19.6997 16.6156 21 17.9161 21 19.5203V22.5002H4.04104C1.80927 22.5002 0 20.6907 0 18.4589V5.54104ZM10.2966 9.19514H18.4743C19.8693 9.19514 21 10.326 21 11.7208V12.4001C21 13.795 19.8693 14.9259 18.4743 14.9259H10.2966C8.90161 14.9259 7.77076 13.795 7.77076 12.4001V11.7208C7.77076 10.326 8.90161 9.19514 10.2966 9.19514Z"
+                fill="url(#paint0_radial_734_4589)"
+              ></path>
+              <defs>
+                <radialGradient
+                  id="paint0_radial_734_4589"
+                  cx="0"
+                  cy="0"
+                  r="1"
+                  gradientUnits="userSpaceOnUse"
+                  gradientTransform="translate(0.582922 0.917034) rotate(55.378) scale(29.7535 118.891)"
+                >
+                  <stop offset="0.051483" stop-color="#C549FF"></stop>
+                  <stop offset="0.815643" stop-color="#704BFF"></stop>
+                </radialGradient>
+              </defs>
             </svg>
-            <h3
-              className="cursor-pointer"
-              onClick={() => connectToFearlessWallet()}
-            >
-              Fearless Wallet
-            </h3>
+            <h3 className="cursor-pointer">Enkrypt Wallet</h3>
+            {!enkrypt && (
+              <Link target="_blank" href={"https://www.enkrypt.com/"}>
+                <button className="px-2 py-1 bg-gray-300 rounded-2xl text-gray-500 text-sm">
+                  INSTALL
+                </button>
+              </Link>
+            )}
           </div>
         </div>
       </div>
