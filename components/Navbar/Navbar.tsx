@@ -6,7 +6,6 @@ import logo from "../../public/assets/images/logo.png";
 import bnbChain from "../../public/assets/images/bnbchain.png";
 import Link from "next/link";
 import Search from "../Navbar/Search";
-import Connect from "./Connect";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
