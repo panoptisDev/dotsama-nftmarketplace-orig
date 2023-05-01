@@ -13,25 +13,25 @@ export default function LaunchPad() {
     <div className="text-black dark:text-white ">
       <div className="px-5 md:px-[15vw] py-8">
         <p className="py-4">
-          Dostama Launchpad aims to help partnered GameFi projects to sell NFTs.{" "}
+          Dotsama Launchpad aims to help partnered Projects to expand their
+          reach to more traders.
         </p>
         <div className="py-4">
           <p>If you are from any projects that meet the conditions below:</p>
-          <li> Finished or going to start a token sale / IDO</li>
+
           <li>Going to release a new NFT collection</li>
           <li>1000+ community(twitter or telegram or discord)</li>
         </div>
         <p className="py-4">
-          Please fill in the form below and let&apos;s figure out a way to work
-          together. Your Launchpad page is shown on the top page of dostama 72
-          hours ago from mint starting. CTA is set as your minting page URL.
-          It&apos;s no cost, but you must list dostama as/among your official
-          marketplaces on your website, Twitter, and other official channels.
+          Please fill in the form below if your project met these two
+          requirements. Your Launchpad page will be shown on our webpage 72
+          hours prior to minting start. There is absolutely no cost to you,
+          however we would kindly request that you list Dotsama as /among your
+          official marketplaces on your website, Twitter, and other official
+          channels.
         </p>
         <p className="py-4">
-          Once submitted, changes will never be accepted. If you want to change
-          anything, we charge $500/times. Pls ask it with tx of USDT for
-          0x079a889eB69013d451EcF45377258948116e2b3e.
+          Once submitted, there will be a 300USDT for each revision.
         </p>
       </div>
       <div className="divider"></div>
