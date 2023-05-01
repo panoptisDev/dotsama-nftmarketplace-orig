@@ -8,7 +8,7 @@ export default function Card(props: any) {
     <div className="carousel-item shadow-xl rounded-lg">
       <div className="card bg-white dark:bg-stone-700 text-black dark:text-white rounded-lg">
         <figure>
-          <Link href={"/collection/bnb/0x98A49JDJae17D8eef1"}>
+          <Link href={"/launchpad/collectionName"}>
             <Image
               className="w-[280px] h-[200px] rounded-md"
               src={props.src}
@@ -21,9 +21,7 @@ export default function Card(props: any) {
             className="card-title text-base font-bold"
             style={{ fontFamily: "VietnamRegular" }}
           >
-            <Link href={"/collection/bnb/0x98A49JDJae17D8eef1"}>
-              Chain Arena
-            </Link>
+            <Link href={"/launchpad/collectionName"}>Chain Arena</Link>
             <div className="flex items-center">
               <div className="tooltip" data-tip="Verified">
                 <Image className="" src={Verified} alt="item" />
