@@ -1,13 +1,13 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import banner from "../../public/assets/images/apply/banner.png";
+import banner from "../../public/assets/images/apply/banner.jpeg";
 import Dropzone from "@/components/DropZone/DropZone";
 
 export default function Apply() {
   return (
     <div className="text-black dark:text-white mb-24">
-      <div className="flex justify-center py-24">
+      <div className="flex justify-center pt-16 md:pt-0 pb-24">
         <Image src={banner} alt="banner" />
       </div>
       <p className="text-center text-2xl font-semibold py-6">About Project</p>
@@ -303,30 +303,10 @@ export default function Apply() {
         <div className="divider"></div>
         <div className="flex justify-center py-4">
           <div
-            className="text-left font-medium w-[80vw] xl:w-[50vw]"
+            className="text-center font-medium w-[80vw] xl:w-[50vw]"
             style={{ fontFamily: "VietnamRegular" }}
           >
-            Person in charge of each chain
-            <li>BNBChain - Twitter: @ys_tofuNFT , Telegram: @Tofu_KR</li>
-            <li>Polygon - Twitter: @YMDH_w3 , Discord: hiyamad#7502</li>
-            <li>
-              Avalanche - Twitter: @haruchiAvax , Telegram: @haruchiAVAX &
-              @yutonaga
-            </li>
-            <li>Arbitrum - Twitter: @YusukeShibata9 , Telegram: @yusuke29</li>
-            <li>
-              Astar - Twitter: @m_web3 , Telegram: @masaberlin & @yutonaga
-            </li>
-            <li>Other chains: You need to submit this form first.</li>
-            For other business inquiries: contact@dostamanft.com <br />
-            日本語のお問合せはこちら: https://service.dostamanft.com/
-            <br />
-            한국어 문의: https://twitter.com/ys_dostamanft
-            <br />
-            Because we receive so many inquiries, we will only contact you if
-            your application is approved. If your application is not approved,
-            we will not contact you. We usually contact you within 2-3 business
-            days.
+            For other business inquiries: contact@dostamanft.com
           </div>
         </div>
         <div className="divider"></div>

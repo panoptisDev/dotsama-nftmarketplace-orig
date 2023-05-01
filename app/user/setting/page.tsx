@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import banner from "../../../public/assets/images/edit/banner.png";
+import banner from "../../../public/assets/images/edit/banner.jpg";
 import avatar from "../../../public/assets/images/edit/avatar.png";
 
 export default function Setting() {

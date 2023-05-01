@@ -53,7 +53,7 @@ export default function User() {
   const [selected3, setSelected3] = useState(chains[0]);
   const [selected4, setSelected4] = useState(category[0]);
   return (
-    <div className="my-10 md:my-12 text-black dark:text-white">
+    <div className="text-black dark:text-white">
       <Image className="w-[100vw]" src={banner} alt="banner" />
       <div className=" mx-4 md:mx-10">
         <div className="relative -top-2 md:-top-10 flex justify-center">

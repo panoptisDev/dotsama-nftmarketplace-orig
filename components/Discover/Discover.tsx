@@ -761,9 +761,11 @@ export default function Discover() {
           </div>
         </div>
         <div className="flex justify-center mt-14">
-          <button className="py-2 border-2 text-black dark:text-white hover:text-white dark:hover:text-black border-black dark:border-white hover:bg-black dark:hover:bg-white rounded-xl w-28">
-            <h2>Load More</h2>
-          </button>
+          <div className="btn-group">
+            <button className="btn">«</button>
+            <button className="btn">Page 22</button>
+            <button className="btn">»</button>
+          </div>
         </div>
       </div>
     </div>
