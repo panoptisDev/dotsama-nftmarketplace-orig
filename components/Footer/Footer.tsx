@@ -63,9 +63,10 @@ export default function Footer() {
           />
         </svg>
         <p className="mt-5 leading-loose text-base">
-          DOTSAMA NFT is the largest multichain NFT marketplace lives <br /> on
-          30+ EVM - compatible public chains, focused on GameFi.
-          <br /> Enjoy exploring & trading with your buddies!
+          DotsamaNFT is the platform of choice for collectors around the world
+          <br />
+          on the DotSama Ecosystems, while supporting interoperability <br />{" "}
+          across multiple blockchain platforms.
         </p>
       </div>
       <div>

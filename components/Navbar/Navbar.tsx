@@ -332,7 +332,7 @@ export default function Navbar() {
 
       {/* MOBILE NAVBAR */}
       <div className="block desktop:hidden">
-        <div className="flex text-black dark:text-white">
+        <div className="flex text-black dark:text-white items-center">
           <div className="flex-1 pl-3 py-6">
             <Link href={"/"}>
               <svg
@@ -393,27 +393,13 @@ export default function Navbar() {
               </svg>
             </Link>
           </div>
-          <div className="flex flex-row items-center">
-            <div>
-              {/* <Connect /> */}
-              <Link href={"/connect"}>
-                <button
-                  className="cursor-pointer bg-black xl:bg-gradient-to-r from-sky-950 via-sky-900 to-sky-800 text-white dark:text-white px-3 py-3 text-sm rounded-lg"
-                  style={{ fontFamily: "VietnamSemiBold" }}
-                >
-                  Connect Wallet
-                </button>
-              </Link>
-            </div>
+          <div className="flex flex-row items-center gap-x-2">
             <div className="dropdown dropdown-end ">
               <label tabIndex={0} className="">
-                <button
-                  className="btn btn-ghost btn-circle"
-                  onClick={() => isSClicked(!sClicked)}
-                >
+                <button className="" onClick={() => isSClicked(!sClicked)}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
+                    className="h-6 w-6"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -440,19 +426,51 @@ export default function Navbar() {
                 </div>
               </div>
             </div>
+            <div>
+              {/* <Connect /> */}
+              <Link href={"/connect"}>
+                <button
+                  className="cursor-pointer bg-black xl:bg-gradient-to-r from-sky-950 via-sky-900 to-sky-800 text-white dark:text-white px-3 py-3 text-sm rounded-lg"
+                  style={{ fontFamily: "VietnamSemiBold" }}
+                >
+                  Connect Wallet
+                </button>
+              </Link>
+            </div>
+
+            <svg
+              className="cursor-pointer"
+              width="26"
+              height="26"
+              viewBox="0 0 26 26"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              onClick={toggleDarkMode}
+            >
+              <circle
+                className="fill-black dark:fill-white"
+                cx="13"
+                cy="13"
+                r="13"
+              />
+              <path
+                className="fill-white dark:fill-black"
+                d="M21.0954 14.5754C20.7266 15.8953 20.0187 17.0957 19.0421 18.0571C18.0655 19.0185 16.8542 19.7074 15.5287 20.0554C14.2032 20.4033 12.8097 20.3981 11.4869 20.0402C10.1641 19.6824 8.95798 18.9844 7.98859 18.0157C7.0192 17.047 6.3203 15.8413 5.96142 14.5187C5.60255 13.196 5.5962 11.8024 5.943 10.4765C6.28981 9.15064 6.97768 7.93867 7.9382 6.96118C8.89872 5.98368 10.0984 5.27473 11.4179 4.90485C11.5146 4.87371 11.6174 4.86681 11.7174 4.88474C11.8174 4.90267 11.9114 4.94488 11.9913 5.00767C12.0711 5.07046 12.1343 5.1519 12.1753 5.24484C12.2163 5.33777 12.2338 5.43935 12.2263 5.54065C12.2261 5.58871 12.2182 5.63642 12.2028 5.68194C11.8914 6.80595 11.8837 7.99244 12.1805 9.12039C12.4773 10.2483 13.068 11.2774 13.8922 12.1025C14.7165 12.9276 15.7448 13.5193 16.8724 13.8172C17.9999 14.1152 19.1863 14.1086 20.3105 13.7983L20.4832 13.7669C20.6198 13.7658 20.753 13.8088 20.8633 13.8893C20.9735 13.9699 21.0549 14.0839 21.0954 14.2143C21.1349 14.3314 21.1349 14.4583 21.0954 14.5754Z"
+              />
+            </svg>
 
             <div className="dropdown dropdown-end">
-              <label className="btn btn-ghost btn-circle avatar my-8">
+              <label className="avatar my-10">
                 <button
                   tabIndex={0}
                   onClick={() => isClicked(!clicked)}
-                  className="btn btn-square btn-ghost z-50"
+                  className="z-50 pr-3"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    className="inline-block w-5 h-5 stroke-current"
+                    className="inline-block w-6 h-6 stroke-current"
                   >
                     <path
                       strokeLinecap="round"

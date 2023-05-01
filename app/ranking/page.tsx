@@ -3,7 +3,7 @@ import Card from "./Card";
 
 export default function Ranking() {
   return (
-    <div>
+    <div className="my-16 md:my-24">
       <div className="flex flex-col items-center gap-y-10 mx-5 md:mx-10 text-black dark:text-white">
         <h1>NFT Rankings</h1>
         <p>
@@ -141,7 +141,7 @@ export default function Ranking() {
                   </th>
                   <th>
                     <h2 className="text-right pr-4 md:pr-6 text-black dark:text-white">
-                      Players
+                      Traders
                     </h2>
                   </th>
                   <th>

@@ -6,7 +6,7 @@ export default function Blog() {
           <h1 className="text-3xl md:text-5xl">Getting Started</h1>
           <p className="mt-5 text-base md:text-xl">
             Here are some featured articles for you to start trading NFTs on
-            tofuNFT.
+            Dotsama.
           </p>
         </div>
 

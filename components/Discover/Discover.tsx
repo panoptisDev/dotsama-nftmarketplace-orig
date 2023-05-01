@@ -741,7 +741,7 @@ export default function Discover() {
         </div>
 
         <div className="flex-1 flex-col items-center">
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 lgDesktop:grid-cols-6 xlDesktop:grid-cols-7 gap-y-10 justify-items-center">
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 lgDesktop:grid-cols-6 xlDesktop:grid-cols-7 gap-y-10 justify-items-center gap-x-4">
             <Card src={Image1} />
             <Card src={Image1} />
             <Card src={Image1} />
