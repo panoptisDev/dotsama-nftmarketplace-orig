@@ -767,15 +767,15 @@ export default function Navbar() {
             <div className="dropdown dropdown-hover ">
               <label
                 tabIndex={0}
-                className="bg-transparent border-0 text-black dark:text-white hover:bg-transparent "
+                className="bg-transparent border-0 text-black dark:text-white hover:bg-transparent flex justify-center items-center"
               >
-                <h3 className="inline-flex">
+                <h3 className="text-base text-[0.95rem]">
                   Apply for NFT Verification and Launchpad{" "}
                 </h3>
 
                 {!isDarkMode ? (
                   <svg
-                    className="ml-2 inline-flex"
+                    className="ml-2"
                     width="10"
                     height="6"
                     viewBox="0 0 10 6"
@@ -789,7 +789,7 @@ export default function Navbar() {
                   </svg>
                 ) : (
                   <svg
-                    className="ml-2 inline-flex"
+                    className="ml-2"
                     width="10"
                     height="6"
                     viewBox="0 0 10 6"
