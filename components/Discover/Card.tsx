@@ -11,7 +11,7 @@ export default function Card(props: any) {
           href={"/collection/bnb/0x98A49JDJae17D8eef1"}
         >
           <Image
-            className="w-[320px] h-[240px] md:w-full md:h-[180px] rounded-md "
+            className="w-[320px] h-[240px] md:w-full md:h-[180px] rounded-md hover:scale-125 ease-in duration-200"
             src={props.src}
             alt="item"
           />

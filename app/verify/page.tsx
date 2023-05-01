@@ -306,7 +306,7 @@ export default function Apply() {
             className="text-center font-medium w-[80vw] xl:w-[50vw]"
             style={{ fontFamily: "VietnamRegular" }}
           >
-            For other business inquiries: contact@dostamanft.com
+            For other business inquiries: contact@dotsamanft.com
           </div>
         </div>
         <div className="divider"></div>

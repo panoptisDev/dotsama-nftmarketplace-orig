@@ -5,7 +5,7 @@ export default function Search(props: any) {
         <input
           type="text"
           placeholder="Search by collection / user / Address"
-          className=" search-bar bg-black dark:bg-white w-[100%] text-sm py-2"
+          className="search-bar bg-black dark:bg-white w-[100%] text-sm py-2"
           style={{ fontFamily: "VietnamRegular" }}
         />
         <button className=" align-middle">

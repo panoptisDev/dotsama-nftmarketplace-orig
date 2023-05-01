@@ -10,11 +10,17 @@ export default function Card(props: any) {
         <figure>
           <Link href={"/launchpad/collectionName"}>
             <Image
-              className="w-[280px] h-[200px] rounded-md"
+              className="w-[280px] h-[200px] rounded-md hover:scale-125 ease-in duration-200"
               src={props.src}
               alt="item"
             />
           </Link>
+          <div className="absolute top-3 left-3 bg-white dark:bg-black px-3 py-1 rounded-lg text-center">
+            <h3>
+              <span className="text-2xl text-black dark:text-white">24</span>
+              <br /> <span className="text-gray-400">APR</span>
+            </h3>
+          </div>
         </figure>
         <div className="p-5">
           <h2

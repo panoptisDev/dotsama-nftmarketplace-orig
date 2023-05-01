@@ -394,7 +394,7 @@ export default function Navbar() {
             </Link>
           </div>
           <div className="flex flex-row items-center gap-x-2">
-            <div className="dropdown dropdown-end ">
+            <div className="dropdown dropdown-end">
               <label tabIndex={0} className="">
                 <button className="" onClick={() => isSClicked(!sClicked)}>
                   <svg
@@ -418,7 +418,7 @@ export default function Navbar() {
                 className={
                   sClicked
                     ? "hidden"
-                    : "mt-3 card card-compact dropdown-content w-[80vw] bg-base-100 shadow"
+                    : "mt-5 card card-compact dropdown-content left-[50%] translate-x-[-50%] w-[80vw] bg-black dark:bg-white shadow"
                 }
               >
                 <div className="card-body">
