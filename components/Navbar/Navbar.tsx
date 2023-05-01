@@ -273,7 +273,7 @@ export default function Navbar() {
                             </a>
                           )}
                         </Menu.Item>
-                        <Menu.Item>
+                        {/* <Menu.Item>
                           {({ active }) => (
                             <a
                               href="/asset/create"
@@ -287,7 +287,7 @@ export default function Navbar() {
                               Create Item
                             </a>
                           )}
-                        </Menu.Item>
+                        </Menu.Item> */}
                         {/* <Menu.Item>
                           {({ active }) => (
                             <a
@@ -701,7 +701,7 @@ export default function Navbar() {
                                         </a>
                                       )}
                                     </Menu.Item>
-                                    <Menu.Item>
+                                    {/* <Menu.Item>
                                       {({ active }) => (
                                         <a
                                           href="/asset/create"
@@ -715,7 +715,7 @@ export default function Navbar() {
                                           Create Item
                                         </a>
                                       )}
-                                    </Menu.Item>
+                                    </Menu.Item> */}
                                     {/* <Menu.Item>
                           {({ active }) => (
                             <a

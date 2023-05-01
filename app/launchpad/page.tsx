@@ -5,7 +5,6 @@ import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { StaticDateTimePicker } from "@mui/x-date-pickers/StaticDateTimePicker";
-import { ListGroup, ListGroupItem, Row, Col, Button } from "reactstrap";
 import Dropzone from "@/components/DropZone/DropZone";
 
 export default function LaunchPad() {
