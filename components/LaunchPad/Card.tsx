@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Card(props: any) {
   return (
     <div className="carousel-item shadow-xl rounded-lg">
-      <div className="card bg-white dark:bg-stone-700 text-black dark:text-white rounded-lg">
+      <div className="card bg-white dark:bg-neutral-900 text-black dark:text-white rounded-lg">
         <figure>
           <Link href={"/launchpad/collectionName"}>
             <Image

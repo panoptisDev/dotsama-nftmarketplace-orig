@@ -21,6 +21,44 @@
   font-family: "VietnamMedium";
   src: url("../public/assets/fonts/BeVietnamPro-Medium.ttf");
 }
+/* <div className="absolute top-0 left-0 w-1/2 h-full bg-[url('../public/assets/images/Ellipse1.png')] bg-scroll bg-right bg-no-repeat bg-cover"></div> */
+/* body {
+  background-image: url("../public//assets/images/Ellipse1.png");
+  background-size: 50%;
+  background-repeat: no-repeat;
+} */
+body {
+  margin: 0;
+  padding: 0;
+  background-size: 100% 100%;
+  background-position: 0px 0px, 0px 0px;
+  background-image: radial-gradient(
+      40% 50% at 1% 5%,
+      #00e1f880 0%,
+      #81939e00 100%
+    ),
+    radial-gradient(40% 50% at 99% 5%, #9800ff85 2%, #9e818100 100%);
+}
+
+/* body.dark {
+  margin: 0;
+  padding: 0;
+  background-size: 100% 100%;
+  background-position: 0px 0px, 0px 0px;
+  background-image: radial-gradient(
+      40% 50% at 1% 5%,
+      #00e1f880 0%,
+      #81939e00 100%
+    ),
+    radial-gradient(40% 50% at 99% 5%, #9800ff85 2%, #9e818100 100%);
+} */
+
+.background-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+}
 
 div {
   font-family: "VietnamRegular";

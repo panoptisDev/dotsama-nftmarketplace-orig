@@ -4,11 +4,20 @@ import Card from "./Card";
 import Image1 from "../../public/assets/images/discover/cardimg.png";
 import Link from "next/link";
 import { Listbox, Transition } from "@headlessui/react";
+import bnbChain from "../../public/assets/images/bnbchain.png";
+import Image from "next/image";
 import {
   CheckIcon,
   ChevronUpDownIcon,
   ChevronDownIcon,
 } from "@heroicons/react/20/solid";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const category = [
   {
@@ -104,7 +113,7 @@ export default function Discover() {
 
             <div className="flex gap-x-6">
               <div>
-                <Listbox value={selected3} onChange={setSelected3}>
+                {/* <Listbox value={selected3} onChange={setSelected3}>
                   {({ open }) => (
                     <>
                       <div className="relative mt-1">
@@ -182,7 +191,22 @@ export default function Discover() {
                       </div>
                     </>
                   )}
-                </Listbox>
+                </Listbox> */}
+                <div className="flex items-center">
+                  <Select defaultValue={"bnb"}>
+                    <SelectTrigger className="w-[180px]">
+                      <SelectValue placeholder="Theme" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="bnb">
+                        <div className="flex items-center">
+                          <Image src={bnbChain} alt="bnb-logo" />
+                          <h3 className="ml-1">BNB Chain</h3>
+                        </div>
+                      </SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
               </div>
               {/* <div className="dropdown dropdown-bottom">
                 <button
@@ -220,7 +244,7 @@ export default function Discover() {
                 </ul>
               </div> */}
               <div>
-                <Listbox value={selected4} onChange={setSelected4}>
+                {/* <Listbox value={selected4} onChange={setSelected4}>
                   {({ open }) => (
                     <>
                       <div className="relative mt-1">
@@ -298,7 +322,22 @@ export default function Discover() {
                       </div>
                     </>
                   )}
-                </Listbox>
+                </Listbox> */}
+                <div className="flex items-center">
+                  <Select defaultValue={"bnb"}>
+                    <SelectTrigger className="w-[180px]">
+                      <SelectValue placeholder="Theme" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="bnb">
+                        <h3 className="ml-1">Category</h3>
+                      </SelectItem>
+                      <SelectItem value="eth">
+                        <h3 className="ml-1">Category2</h3>
+                      </SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
               </div>
               {/* <div className="dropdown dropdown-bottom">
                 <button

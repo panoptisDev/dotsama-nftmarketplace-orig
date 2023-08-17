@@ -28,7 +28,7 @@ export default function Banner() {
             className="carousel flex p-2 items-center justify-start overflow-x-auto scroll-smooth scrollbar-hide gap-x-4"
           >
             <Image
-              className="w-[500px] h-[300px] bg-white dark:bg-gray-700 rounded-xl p-4 banner-shadow"
+              className="w-[500px] h-[300px] bg-white dark:bg-neutral-900 rounded-xl p-4 banner-shadow"
               src={mainBanner}
               alt="main"
             />
@@ -41,7 +41,7 @@ export default function Banner() {
       </div>
       <div className="hidden md:block">
         <div className="grid grid-cols-5 gap-x-4 text-white mt-16 mb-10">
-          <div className="row-span-2 col-span-2 flex justify-center bg-white dark:bg-gray-700 rounded-xl p-4 banner-shadow">
+          <div className="row-span-2 col-span-2 flex justify-center bg-white dark:bg-neutral-900 rounded-xl p-4 banner-shadow">
             <Link
               className="w-[100%]"
               href={"/collection/bnb/0x98A49JDJae17D8eef1"}

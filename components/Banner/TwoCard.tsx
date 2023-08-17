@@ -13,12 +13,12 @@ export default function TwoCard() {
       <div className="col-span-10">
         <div className="grid grid-rows-2 gap-4">
           <Image
-            className="bg-white dark:bg-gray-700 p-2 rounded-xl banner-shadow"
+            className="bg-white dark:bg-neutral-900 p-2 rounded-xl banner-shadow"
             src={Image1}
             alt="b-image"
           />{" "}
           <Image
-            className="bg-white dark:bg-gray-700 p-2 rounded-xl banner-shadow"
+            className="bg-white dark:bg-neutral-900 p-2 rounded-xl banner-shadow"
             src={Image2}
             alt="b-image"
           />

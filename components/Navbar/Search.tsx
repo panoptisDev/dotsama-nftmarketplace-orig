@@ -1,28 +1,65 @@
-export default function Search(props: any) {
+import {
+  Command,
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+  CommandShortcut,
+} from "@/components/ui/command";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+
+export default function Search() {
   return (
-    <div className="text-white dark:text-black bg-black dark:bg-white py-1 px-2 rounded-lg shadow-2xl shadow-black-500/50">
-      <div className="w-full flex flex-row">
-        <input
-          type="text"
-          placeholder="Search by collection / user / Address"
-          className="search-bar bg-black dark:bg-white w-[100%] text-sm py-2"
-          style={{ fontFamily: "VietnamRegular" }}
-        />
-        <button className=" align-middle">
-          <svg
-            className="ml-1"
-            xmlns="http://www.w3.org/2000/svg"
-            x="0px"
-            y="0px"
-            width="20"
-            height="20"
-            viewBox="0 0 30 30"
-            fill={!props.isDarkMode ? "#FFFFFF" : "#00000"}
-          >
-            <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"></path>
-          </svg>
-        </button>
-      </div>
-    </div>
+    <Dialog>
+      <DialogTrigger className="md:w-[300px] xl:w-[300px] 2xl:w-[500px] max-w-xl shadow-xl">
+        <Command className="dark:bg-neutral-900 max-w-xl">
+          <CommandInput placeholder="Search" />
+        </Command>
+      </DialogTrigger>
+      <DialogContent className="dark:bg-neutral-900">
+        <Command className="dark:bg-neutral-900">
+          <CommandInput placeholder="Type a command or search..." />
+          <CommandList className=" z-10">
+            <CommandEmpty>No results found.</CommandEmpty>
+            <CommandGroup heading="Suggestions">
+              <CommandItem>Bored Ape Yacht Club</CommandItem>
+              <CommandItem>Milady</CommandItem>
+              <CommandItem>Moonbirds</CommandItem>
+            </CommandGroup>
+            <CommandSeparator />
+            <CommandGroup heading="Settings">
+              <CommandItem>Profile</CommandItem>
+              <CommandItem>Settings</CommandItem>
+            </CommandGroup>
+          </CommandList>
+        </Command>
+      </DialogContent>
+    </Dialog>
+    // <Command className="dark:bg-neutral-900 max-w-xl h-10">
+    //   <CommandInput placeholder="Type a command or search..." />
+    //   <CommandList className=" z-10">
+    //     <CommandEmpty>No results found.</CommandEmpty>
+    //     <CommandGroup heading="Suggestions">
+    //       <CommandItem>Bored Ape Yacht Club</CommandItem>
+    //       <CommandItem>Milady</CommandItem>
+    //       <CommandItem>Moonbirds</CommandItem>
+    //     </CommandGroup>
+    //     <CommandSeparator />
+    //     <CommandGroup heading="Settings">
+    //       <CommandItem>Profile</CommandItem>
+    //       <CommandItem>Settings</CommandItem>
+    //     </CommandGroup>
+    //   </CommandList>
+    // </Command>
   );
 }
