@@ -1,21 +1,13 @@
-"use client";
 import Navbar from "@/components/Navbar/Navbar";
 import "./globals.css";
 import Footer from "@/components/Footer/Footer";
-import { WagmiConfig, createClient, configureChains, mainnet } from "wagmi";
-import { publicProvider } from "wagmi/providers/public";
 import { ThemeProvider } from "@/components/ui/ThemeProvider/themeprovider";
+import type { Metadata } from "next";
 
-const { chains, provider, webSocketProvider } = configureChains(
-  [mainnet],
-  [publicProvider()]
-);
-
-const client = createClient({
-  autoConnect: true,
-  provider,
-  webSocketProvider,
-});
+export const metadata: Metadata = {
+  title: "Dotsama NFT Marketplace",
+  description: "Leading NFT Marketplace for Astar and Moonbeam.",
+};
 
 export default function RootLayout({
   children,
@@ -39,19 +31,11 @@ export default function RootLayout({
           </div>
 
           <ThemeProvider attribute="class" defaultTheme="light">
-            <WagmiConfig client={client}>
-              <div className="min-h-screen w-screen">
-                <div className="">
-                  <Navbar />
-                  {children}
-                  <Footer />
-                </div>
-                {/* <div className="absolute top-0 left-0 w-screen h-full">
-                <div className="absolute top-0 left-0 w-1/2 h-full bg-[url('../public/assets/images/Ellipse1.png')] bg-scroll bg-right bg-no-repeat bg-cover"></div>
-                <div className="absolute top-0 right-0 w-1/2 h-full bg-[url('../public/assets/images/Ellipse2.png')] bg-scroll bg-left bg-no-repeat bg-cover"></div>
-              </div> */}
-              </div>
-            </WagmiConfig>
+            <div className="min-h-screen w-screen">
+              <Navbar />
+              {children}
+              <Footer />
+            </div>
           </ThemeProvider>
         </div>
       </body>

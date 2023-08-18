@@ -2,24 +2,10 @@
 import { useState, useEffect } from "react";
 import { useAccount, useConnect } from "wagmi";
 import { MetaMaskConnector } from "wagmi/connectors/metaMask";
-import { web3Accounts, web3Enable } from "@polkadot/extension-dapp";
-import { InjectedAccountWithMeta } from "@polkadot/extension-inject/types";
 import Image from "next/image";
 import subwallet from "../../public/assets/images/connect/subwallet.png";
 import novawallet from "../../public/assets/images/connect/nova.png";
 import Link from "next/link";
-import type { InjectedExtension } from "@polkadot/extension-inject/types";
-import { objectSpread } from "@polkadot/util";
-const { ApiPromise, WsProvider } = require("@polkadot/api");
-
-interface InjectedAccountExt {
-  address: string;
-  meta: {
-    name: string;
-    source: string;
-    whenCreated: number;
-  };
-}
 
 export default function ConnectPage() {
   const [metamask, isMetamask] = useState<boolean>(true);
@@ -27,9 +13,6 @@ export default function ConnectPage() {
   const [sub, isSub] = useState<boolean>(true);
   const [nova, isNova] = useState<boolean>(true);
   const [enkrypt, isEnkrypt] = useState<boolean>(true);
-  const [selectedAccount, setSelectedAccount] =
-    useState<InjectedAccountWithMeta>();
-  const [accounts, setAccounts] = useState<InjectedAccountWithMeta[]>([]);
   // const { address, isConnected } = useAccount();
   const { connect } = useConnect({
     connector: new MetaMaskConnector(),
@@ -57,82 +40,6 @@ export default function ConnectPage() {
     checkWallets();
   }, []);
 
-  const handleConnectionTalisman = async () => {
-    // const extensions = await web3Enable("DotsamaNFT");
-    // if (!extensions) {
-    //   throw Error("NO_EXTENSIONS_FOUND");
-    // }
-
-    // const allAccounts = await web3Accounts();
-    // console.log(allAccounts);
-    // if (allAccounts.length === 1) {
-    //   setSelectedAccount(allAccounts[0]);
-    // }
-    const wallet = (window as any).talismanEth;
-
-    if (!wallet) {
-      console.warn("Talisman is not installed");
-    }
-    try {
-      const accounts = await wallet.request({ method: "eth_requestAccounts" });
-      console.log(accounts);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  async function handleConnectionNova(): Promise<InjectedAccountExt[]> {
-    try {
-      const injectedPromise = web3Enable("DotsamaNFT");
-      await injectedPromise;
-
-      const accounts = await web3Accounts();
-
-      return accounts.map(
-        ({ address, meta }, whenCreated): InjectedAccountExt => ({
-          address,
-          meta: objectSpread({}, meta, {
-            name: `${meta.name || "unknown"} (${
-              meta.source === "polkadot-js" ? "extension" : meta.source
-            })`,
-            whenCreated,
-          }),
-        })
-      );
-    } catch (error) {
-      console.error("web3Accounts", error);
-
-      return [];
-    }
-  }
-
-  async function connectToEnkryptWallet(): Promise<void> {
-    const extensions = await web3Enable("DotsamaNFT");
-    if (!extensions) {
-      throw Error("NO_EXTENSIONS_FOUND");
-    }
-
-    const allAccounts = await web3Accounts();
-    console.log(allAccounts);
-    if (allAccounts.length === 1) {
-      setSelectedAccount(allAccounts[0]);
-    }
-  }
-
-  const handleConnectionSubWallet = async () => {
-    const wallet = (window as any).SubWallet;
-
-    if (!wallet || !wallet.isSubWallet) {
-      console.warn("SubWallet is not installed");
-    }
-    try {
-      await wallet.enable();
-      const accounts = await wallet.request("eth_requestAccounts");
-      console.log(accounts);
-    } catch (e) {
-      console.log(e);
-    }
-  };
   return (
     <div className="my-10 md:my-14 flex justify-center items-center">
       <div className="w-5/6 md:w-1/2">
@@ -291,12 +198,8 @@ export default function ConnectPage() {
               </Link>
             )}
           </div>
-          <div
-            className="cursor-pointer flex flex-col items-center justify-center gap-y-4 text-black dark:text-white p-5 shadow-xl"
-            onClick={() => handleConnectionTalisman()}
-          >
+          <div className="cursor-pointer flex flex-col items-center justify-center gap-y-4 text-black dark:text-white p-5 shadow-xl">
             <svg
-              onClick={() => handleConnectionTalisman()}
               xmlns="http://www.w3.org/2000/svg"
               width="80"
               height="80"
@@ -367,12 +270,8 @@ export default function ConnectPage() {
             )}
           </div>
 
-          <div
-            className="cursor-pointer flex flex-col items-center justify-center gap-y-4 text-black dark:text-white p-5 shadow-xl"
-            onClick={() => handleConnectionSubWallet()}
-          >
+          <div className="cursor-pointer flex flex-col items-center justify-center gap-y-4 text-black dark:text-white p-5 shadow-xl">
             <Image
-              onClick={() => handleConnectionSubWallet()}
               className="w-[80px] h-[80px] cursor-pointer"
               src={subwallet}
               alt="subwallet"
@@ -390,12 +289,8 @@ export default function ConnectPage() {
             )}
           </div>
 
-          <div
-            className="cursor-pointer flex flex-col items-center justify-center gap-y-4 text-black dark:text-white p-5 shadow-xl"
-            onClick={() => handleConnectionNova()}
-          >
+          <div className="cursor-pointer flex flex-col items-center justify-center gap-y-4 text-black dark:text-white p-5 shadow-xl">
             <Image
-              onClick={() => handleConnectionNova()}
               className="w-[80px] h-[80px] rounded-lg"
               src={novawallet}
               alt="nova"
@@ -413,12 +308,8 @@ export default function ConnectPage() {
             )}
           </div>
 
-          <div
-            className="cursor-pointer flex flex-col items-center justify-center gap-y-4 text-black dark:text-white p-5 shadow-xl"
-            onClick={() => connectToEnkryptWallet()}
-          >
+          <div className="cursor-pointer flex flex-col items-center justify-center gap-y-4 text-black dark:text-white p-5 shadow-xl">
             <svg
-              onClick={() => connectToEnkryptWallet()}
               data-v-50a5d661=""
               width="100"
               height="80"
