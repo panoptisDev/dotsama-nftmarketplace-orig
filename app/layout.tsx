@@ -3,6 +3,8 @@ import "./globals.css";
 import Footer from "@/components/Footer/Footer";
 import { ThemeProvider } from "@/components/ui/ThemeProvider/themeprovider";
 import type { Metadata } from "next";
+import WagmiProvider from "./WagmiProvider/wagmi-provider";
+import dynamic from "next/dynamic";
 
 export const metadata: Metadata = {
   title: "Dotsama NFT Marketplace",
@@ -29,14 +31,15 @@ export default function RootLayout({
             <div className="background left"></div>
             <div className="background right"></div>
           </div>
-
-          <ThemeProvider attribute="class" defaultTheme="light">
-            <div className="min-h-screen w-screen">
-              <Navbar />
-              {children}
-              <Footer />
-            </div>
-          </ThemeProvider>
+          <WagmiProvider>
+            <ThemeProvider attribute="class" defaultTheme="light">
+              <div className="min-h-screen w-screen">
+                <Navbar />
+                {children}
+                <Footer />
+              </div>
+            </ThemeProvider>
+          </WagmiProvider>
         </div>
       </body>
     </html>

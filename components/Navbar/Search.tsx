@@ -21,7 +21,7 @@ import {
 export default function Search() {
   return (
     <Dialog>
-      <DialogTrigger className="md:w-[300px] xl:w-[300px] 2xl:w-[500px] max-w-xl shadow-xl">
+      <DialogTrigger className="w-full md:w-[300px] xl:w-[300px] 2xl:w-[500px] max-w-xl shadow-xl">
         <Command className="dark:bg-neutral-900 max-w-xl">
           <CommandInput placeholder="Search" />
         </Command>
