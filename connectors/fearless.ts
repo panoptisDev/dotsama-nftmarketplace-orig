@@ -15,7 +15,8 @@ export type FearlessWalletConnectorOptions = InjectedConnectorOptions & {
 
 export class FearlessWalletConnector extends InjectedConnector {
   readonly id = "Fearlesswallet";
-  readonly ready = typeof window != "undefined" && !!window.injectedWeb3;
+  // readonly ready = typeof window != "undefined" && !!window.injectedWeb3;
+  readonly ready = true;
 
   constructor({
     chains,
