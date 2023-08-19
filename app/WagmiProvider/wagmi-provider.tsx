@@ -11,7 +11,7 @@ import { NovaWalletConnector } from "@/connectors/novawallet";
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
 import { EnkryptWalletConnector } from "@/connectors/enkrypt";
 import { Chain } from "wagmi";
-if (typeof window === "undefined") React.useLayoutEffect = () => {};
+// if (typeof window === "undefined") React.useLayoutEffect = () => {};
 
 export const astar = {
   id: 592,
