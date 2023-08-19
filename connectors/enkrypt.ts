@@ -7,7 +7,6 @@ import {
 
 declare global {
   interface Window {
-    ethereum: WindowProvider;
     enkrypt: any;
   }
 }
@@ -17,7 +16,7 @@ export type EnkryptWalletConnectorOptions = InjectedConnectorOptions & {
 export class EnkryptWalletConnector extends InjectedConnector {
   readonly id = "Enkrypt";
   // readonly ready = typeof window != "undefined" && !!window.enkrypt;
-  readonly ready = typeof window != "undefined" && !!window.ethereum.isEnkrypt;
+  readonly ready = typeof window != "undefined";
   //   readonly ready = true;
 
   constructor({

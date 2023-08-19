@@ -7,7 +7,6 @@ import {
 
 declare global {
   interface Window {
-    ethereum: WindowProvider;
     SubWallet: any;
   }
 }
@@ -20,8 +19,7 @@ export class SubWalletConnector extends InjectedConnector {
   // readonly ready =
   //   typeof window != "undefined" && !!window.SubWallet && !!window.isSubWallet;
   // readonly ready = true;
-  readonly ready =
-    typeof window != "undefined" && !!window.ethereum.isSubWallet;
+  readonly ready = typeof window != "undefined";
 
   constructor({
     chains,
