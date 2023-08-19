@@ -35,7 +35,7 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
 );
 
 const config = createConfig({
-  autoConnect: true,
+  autoConnect: false,
   connectors: [
     new MetaMaskConnector({
       chains: [moonbeam, astar],
