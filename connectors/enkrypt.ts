@@ -12,11 +12,11 @@ declare global {
 export type EnkryptWalletConnectorOptions = InjectedConnectorOptions & {
   // nothing for now
 };
-const enkryptprov = window.enkrypt;
 export class EnkryptWalletConnector extends InjectedConnector {
   readonly id = "Enkrypt";
   // readonly ready = typeof window != "undefined" && !!window.enkrypt;
-  readonly ready = typeof window != "undefined" && !!enkryptprov;
+  readonly ready =
+    typeof window != "undefined" && typeof window.enkrypt !== "undefined";
   //   readonly ready = true;
 
   constructor({
