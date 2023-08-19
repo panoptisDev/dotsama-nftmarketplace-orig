@@ -2,11 +2,12 @@ import {
   Chain,
   InjectedConnector,
   InjectedConnectorOptions,
+  WindowProvider,
 } from "@wagmi/core";
 
 declare global {
   interface Window {
-    ethereum: any;
+    ethereum: WindowProvider;
   }
 }
 export type NovaWalletConnectorOptions = InjectedConnectorOptions & {
@@ -19,8 +20,7 @@ export class NovaWalletConnector extends InjectedConnector {
   //   typeof window != "undefined" && !!window.ethereum.isNovaWallet;
   // readonly ready = true;
   readonly ready =
-    typeof window != "undefined" &&
-    typeof window.ethereum.isNovaWallet !== "undefined";
+    typeof window != "undefined" && !!window.ethereum.isNovaWallet;
 
   constructor({
     chains,

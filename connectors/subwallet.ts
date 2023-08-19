@@ -2,12 +2,13 @@ import {
   Chain,
   InjectedConnector,
   InjectedConnectorOptions,
+  WindowProvider,
 } from "@wagmi/core";
 
 declare global {
   interface Window {
+    ethereum: WindowProvider;
     SubWallet: any;
-    isSubWallet: any;
   }
 }
 export type SubWalletConnectorOptions = InjectedConnectorOptions & {
@@ -20,7 +21,7 @@ export class SubWalletConnector extends InjectedConnector {
   //   typeof window != "undefined" && !!window.SubWallet && !!window.isSubWallet;
   // readonly ready = true;
   readonly ready =
-    typeof window != "undefined" && typeof window.SubWallet !== "undefined";
+    typeof window != "undefined" && !!window.ethereum.isSubWallet;
 
   constructor({
     chains,
