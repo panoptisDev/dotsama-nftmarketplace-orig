@@ -7,6 +7,7 @@ import {
 declare global {
   interface Window {
     SubWallet: any;
+    isSubWallet: any;
   }
 }
 export type SubWalletConnectorOptions = InjectedConnectorOptions & {
@@ -15,7 +16,8 @@ export type SubWalletConnectorOptions = InjectedConnectorOptions & {
 
 export class SubWalletConnector extends InjectedConnector {
   readonly id = "subwallet";
-  readonly ready = typeof window != "undefined" && !!window.SubWallet;
+  readonly ready =
+    typeof window != "undefined" && !!window.SubWallet && !!window.isSubWallet;
 
   constructor({
     chains,
