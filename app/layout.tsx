@@ -4,7 +4,6 @@ import Footer from "@/components/Footer/Footer";
 import { ThemeProvider } from "@/components/ui/ThemeProvider/themeprovider";
 import type { Metadata } from "next";
 import WagmiProvider from "./WagmiProvider/wagmi-provider";
-import dynamic from "next/dynamic";
 
 export const metadata: Metadata = {
   title: "Dotsama NFT Marketplace",
@@ -17,15 +16,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html>
       <head>
         <link rel="manifest" href="/manifest.json" />
       </head>
-      <body
-        className="bg-white dark:bg-black"
-        suppressHydrationWarning={true}
-        cz-shortcut-listen="true"
-      >
+      <body className="bg-white dark:bg-black" cz-shortcut-listen="true">
         <div className="background-container">
           <div className="backgroundwrapperwrapper">
             <div className="background left"></div>
