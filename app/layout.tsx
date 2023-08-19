@@ -16,11 +16,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html>
+    <html suppressHydrationWarning={true}>
       <head>
         <link rel="manifest" href="/manifest.json" />
       </head>
-      <body className="bg-white dark:bg-black" cz-shortcut-listen="true">
+      <body
+        className="bg-white dark:bg-black"
+        suppressHydrationWarning={true}
+        cz-shortcut-listen="true"
+      >
         <div className="background-container">
           <div className="backgroundwrapperwrapper">
             <div className="background left"></div>
