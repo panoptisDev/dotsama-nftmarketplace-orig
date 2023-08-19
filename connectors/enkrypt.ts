@@ -15,9 +15,7 @@ export type EnkryptWalletConnectorOptions = InjectedConnectorOptions & {
 
 export class EnkryptWalletConnector extends InjectedConnector {
   readonly id = "Enkrypt";
-  readonly ready =
-    typeof window != "undefined" &&
-    !!window.enkrypt.providers.ethereum.isEnkrypt;
+  readonly ready = typeof window != "undefined" && !!window.enkrypt;
 
   constructor({
     chains,
