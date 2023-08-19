@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from "react";
 import { useConnect } from "wagmi";
 import Image from "next/image";
 import {
@@ -16,10 +17,27 @@ import novawallet from "../../public/assets/images/novawallet.png";
 import Link from "next/link";
 
 export default function WalletConnections() {
+  const [enkrypt, isEnkrypt] = useState(true);
+  const [nova, isNova] = useState(true);
+  const [talisman, isTalisman] = useState(true);
+  const [sub, isSub] = useState(true);
   const { connect, connectors, error, isLoading, pendingConnector } =
     useConnect();
+  useEffect(() => {
+    if (typeof (window as any).enkrypt == "undefined") {
+      isEnkrypt(false);
+    }
+    if (!(window as any).ethereum.isNovaWallet) {
+      isNova(false);
+    }
+    if (typeof (window as any).talismanEth == "undefined") {
+      isTalisman(false);
+    }
+    if (typeof (window as any).SubWallet == "undefined") {
+      isSub(false);
+    }
+  }, []);
 
-  console.log(connectors.map((connector) => console.log(connector.name)));
   return (
     <div className="flex justify-center items-center">
       <Dialog>
@@ -352,7 +370,7 @@ export default function WalletConnections() {
                             ></path>
                           </svg>
                         )}
-                        {!connector.ready && (
+                        {!talisman && (
                           <Button size={"default"} variant={"ghost"}>
                             <Link
                               target={"_blank"}
@@ -405,7 +423,7 @@ export default function WalletConnections() {
                             ></path>
                           </svg>
                         )}
-                        {!connector.ready && (
+                        {!sub && (
                           <Button size={"default"} variant={"ghost"}>
                             <Link
                               target={"_blank"}
@@ -458,7 +476,7 @@ export default function WalletConnections() {
                             ></path>
                           </svg>
                         )}
-                        {!connector.ready && (
+                        {!nova && (
                           <Button size={"default"} variant={"ghost"}>
                             <Link
                               target={"_blank"}
@@ -521,7 +539,7 @@ export default function WalletConnections() {
                             ></path>
                           </svg>
                         )}
-                        {!connector.ready && (
+                        {!enkrypt && (
                           <Button size={"default"} variant={"ghost"}>
                             <Link
                               target={"_blank"}
