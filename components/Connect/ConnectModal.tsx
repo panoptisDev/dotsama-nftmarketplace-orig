@@ -27,9 +27,9 @@ export default function WalletConnections() {
     if (typeof (window as any).enkrypt == "undefined") {
       isEnkrypt(false);
     }
-    // if (!(window as any).ethereum.isNovaWallet) {
-    //   isNova(false);
-    // }
+    if (typeof (window as any).ethereum?.isNovaWallet == "undefined") {
+      isNova(false);
+    }
     if (typeof (window as any).talismanEth == "undefined") {
       isTalisman(false);
     }
