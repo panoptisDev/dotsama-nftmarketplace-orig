@@ -42,6 +42,7 @@ export default function SwitchNetwork() {
           </SelectTrigger>
           <SelectContent>
             <SelectItem
+              className="text-black"
               onChange={(event: any) => console.log(event.target.value)}
               value="moonbeam"
             >
@@ -54,7 +55,7 @@ export default function SwitchNetwork() {
                 <h3 className="ml-1">Moonbeam</h3>
               </div>
             </SelectItem>
-            <SelectItem value="astar">
+            <SelectItem className="text-black" value="astar">
               <div className="flex items-center">
                 <Image
                   className="w-[27px] h-[27px]"

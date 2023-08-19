@@ -166,22 +166,22 @@ export default function MobileNavbar() {
                             {selectedChain === "moonbeam" ? (
                               <div className="flex items-center gap-x-2">
                                 <Image
-                                  className="w-[30px] h-[30px] ml-[12px] mb-2"
+                                  className="w-[27px] h-[27px]"
                                   src={moonbeamLogo}
                                   alt="bnb-logo"
                                 />
-                                <h3 className="ml-2 mb-2 text-black dark:text-white">
+                                <h3 className="ml-1  text-black dark:text-white">
                                   Moonbeam
                                 </h3>
                               </div>
                             ) : selectedChain === "astar" ? (
                               <div className="flex items-center gap-x-2">
                                 <Image
-                                  className="w-[30px] h-[30px] ml-[4px] mb-2"
+                                  className="w-[27px] h-[27px] "
                                   src={astarLogo}
                                   alt="astar-logo"
                                 />
-                                <h3 className="ml-2 mb-2 text-black dark:text-white">
+                                <h3 className="ml-2  text-black dark:text-white">
                                   Astar
                                 </h3>
                               </div>
@@ -265,7 +265,7 @@ export default function MobileNavbar() {
                             <div className="flex items-center gap-x-2">
                               <div>
                                 <svg
-                                  className="ml-[16px]"
+                                  className=""
                                   width="27"
                                   height="27"
                                   viewBox="0 0 18 18"
@@ -349,7 +349,7 @@ export default function MobileNavbar() {
                           <Menu.Button className="w-full h-full ">
                             <div className="flex items-center gap-x-2 mt-1">
                               <svg
-                                className="ml-[16px]"
+                                className=""
                                 width="27"
                                 height="27"
                                 viewBox="0 0 24 24"
