@@ -277,7 +277,7 @@ export default function WalletConnections() {
                           onClick={() => {
                             connect({ chainId: moonbeam.id, connector });
                           }}
-                          disabled={!connector.ready}
+                          disabled={!talisman}
                           className="w-full flex items-center gap-x-2"
                         >
                           <svg
@@ -391,7 +391,7 @@ export default function WalletConnections() {
                           onClick={() => {
                             connect({ chainId: moonbeam.id, connector });
                           }}
-                          disabled={!connector.ready}
+                          disabled={!sub}
                           className="w-full flex items-center gap-x-2"
                         >
                           <Image
@@ -444,7 +444,7 @@ export default function WalletConnections() {
                           onClick={() => {
                             connect({ chainId: moonbeam.id, connector });
                           }}
-                          disabled={!connector.ready}
+                          disabled={!nova}
                           className="w-full flex items-center gap-x-2"
                         >
                           <Image
@@ -497,7 +497,7 @@ export default function WalletConnections() {
                           onClick={() => {
                             connect({ chainId: moonbeam.id, connector });
                           }}
-                          disabled={!connector.ready}
+                          disabled={!enkrypt}
                           className="w-full flex items-center gap-x-2"
                         >
                           <svg
