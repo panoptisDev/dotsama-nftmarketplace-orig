@@ -13,7 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ModeToggle } from "../ui/ThemeToggle/Toggle";
-import MobileNavbar from "../MobileNavbar/MobileNavbar";
+import MobileNavbar from "../MobileNavbar.tsx/MobileNavbar";
 
 const SwitchNetwork = dynamic(() => import("../SwitchNetwork/SwitchNetwork"), {
   ssr: false,

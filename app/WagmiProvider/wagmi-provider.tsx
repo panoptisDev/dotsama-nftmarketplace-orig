@@ -9,6 +9,7 @@ import { TalismanConnector } from "@/connectors/talisman";
 import { SubWalletConnector } from "@/connectors/subwallet";
 import { NovaWalletConnector } from "@/connectors/novawallet";
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
+import { EnkryptWalletConnector } from "@/connectors/enkrypt";
 import { Chain } from "wagmi";
 if (typeof window === "undefined") React.useLayoutEffect = () => {};
 
@@ -44,6 +45,8 @@ const config = createConfig({
     }),
     new TalismanConnector({ chains: [moonbeam, astar] }),
     new SubWalletConnector({ chains: [moonbeam, astar] }),
+    new NovaWalletConnector({ chains: [moonbeam, astar] }),
+    new EnkryptWalletConnector({ chains: [moonbeam, astar] }),
     new InjectedConnector({ chains: [moonbeam, astar] }),
     new WalletConnectConnector({
       chains: [moonbeam, astar],

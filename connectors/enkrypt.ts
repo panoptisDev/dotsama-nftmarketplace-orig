@@ -6,29 +6,28 @@ import {
 
 declare global {
   interface Window {
-    ethereum: any;
+    enkrypt: any;
   }
 }
-export type NovaWalletConnectorOptions = InjectedConnectorOptions & {
+export type EnkryptWalletConnectorOptions = InjectedConnectorOptions & {
   // nothing for now
 };
 
-export class NovaWalletConnector extends InjectedConnector {
-  readonly id = "novawallet";
-  readonly ready =
-    typeof window != "undefined" && !!window.ethereum.isNovaWallet;
+export class EnkryptWalletConnector extends InjectedConnector {
+  readonly id = "Enkrypt";
+  readonly ready = typeof window != "undefined" && !!window.enkrypt;
 
   constructor({
     chains,
     options: options_,
   }: {
     chains?: Chain[];
-    options?: NovaWalletConnectorOptions;
+    options?: EnkryptWalletConnectorOptions;
   } = {}) {
     super({
       chains,
       options: {
-        name: "NovaWallet",
+        name: "Enkrypt",
         shimDisconnect: true,
         ...options_,
       },
@@ -37,6 +36,6 @@ export class NovaWalletConnector extends InjectedConnector {
 
   async getProvider() {
     if (typeof window === "undefined") return;
-    return window.ethereum;
+    return window.enkrypt.providers.ethereum;
   }
 }

@@ -12,6 +12,8 @@ import {
 import { Button } from "../ui/button";
 import { moonbeam } from "@wagmi/core/chains";
 import subwallet from "../../public/assets/images/connect/subwallet.png";
+import novawallet from "../../public/assets/images/novawallet.png";
+import Link from "next/link";
 
 export default function WalletConnections() {
   const { connect, connectors, error, isLoading, pendingConnector } =
@@ -28,7 +30,7 @@ export default function WalletConnections() {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
               // className="w-6 h-6"
             >
@@ -48,7 +50,7 @@ export default function WalletConnections() {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
               // className="w-6 h-6"
             >
@@ -232,7 +234,7 @@ export default function WalletConnections() {
                               cy="12"
                               r="10"
                               stroke="currentColor"
-                              stroke-width="4"
+                              strokeWidth="4"
                             ></circle>
                             <path
                               className="opacity-75"
@@ -334,7 +336,7 @@ export default function WalletConnections() {
                               cy="12"
                               r="10"
                               stroke="currentColor"
-                              stroke-width="4"
+                              strokeWidth="4"
                             ></circle>
                             <path
                               className="opacity-75"
@@ -375,7 +377,7 @@ export default function WalletConnections() {
                               cy="12"
                               r="10"
                               stroke="currentColor"
-                              stroke-width="4"
+                              strokeWidth="4"
                             ></circle>
                             <path
                               className="opacity-75"
@@ -383,6 +385,59 @@ export default function WalletConnections() {
                               d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                             ></path>
                           </svg>
+                        )}
+                      </div>
+                    )}
+
+                    {connector.name === "NovaWallet" && (
+                      <div className="cursor-pointer flex gap-x-2 items-center justify-between gap-y-4 text-black dark:text-white p-5 shadow-lg dark:shadow-slate-700 w-full">
+                        <button
+                          onClick={() => {
+                            connect({ chainId: moonbeam.id, connector });
+                          }}
+                          disabled={!connector.ready}
+                          className="w-full flex items-center gap-x-2"
+                        >
+                          <Image
+                            className="w-[27px] h-[27px] cursor-pointer"
+                            src={novawallet}
+                            alt="NovaWallet"
+                          />
+                          <h3 className="cursor-pointer">NovaWallet</h3>
+                        </button>
+                        {isLoading && connector.id === pendingConnector?.id && (
+                          <svg
+                            className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              className="opacity-25"
+                              cx="12"
+                              cy="12"
+                              r="10"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                            ></circle>
+                            <path
+                              className="opacity-75"
+                              fill="currentColor"
+                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                            ></path>
+                          </svg>
+                        )}
+                        {!connector.ready && (
+                          <Button size={"default"} variant={"ghost"}>
+                            <Link
+                              target={"_blank"}
+                              rel="norefferer"
+                              href={"https://novawallet.io"}
+                            >
+                              {" "}
+                              INSTALL
+                            </Link>
+                          </Button>
                         )}
                       </div>
                     )}
@@ -426,7 +481,7 @@ export default function WalletConnections() {
                               cy="12"
                               r="10"
                               stroke="currentColor"
-                              stroke-width="4"
+                              strokeWidth="4"
                             ></circle>
                             <path
                               className="opacity-75"
@@ -434,6 +489,18 @@ export default function WalletConnections() {
                               d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                             ></path>
                           </svg>
+                        )}
+                        {!connector.ready && (
+                          <Button size={"default"} variant={"ghost"}>
+                            <Link
+                              target={"_blank"}
+                              rel="norefferer"
+                              href={"https://www.enkrypt.com"}
+                            >
+                              {" "}
+                              INSTALL
+                            </Link>
+                          </Button>
                         )}
                       </div>
                     )}
@@ -474,7 +541,7 @@ export default function WalletConnections() {
                               cy="12"
                               r="10"
                               stroke="currentColor"
-                              stroke-width="4"
+                              strokeWidth="4"
                             ></circle>
                             <path
                               className="opacity-75"
