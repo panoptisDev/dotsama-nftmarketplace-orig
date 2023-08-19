@@ -20,7 +20,7 @@ export class NovaWalletConnector extends InjectedConnector {
   // readonly ready = true;
   readonly ready =
     typeof window != "undefined" &&
-    typeof window.ethereum.isNovaWallet !== undefined;
+    typeof window.ethereum.isNovaWallet !== "undefined";
 
   constructor({
     chains,

@@ -17,7 +17,8 @@ export class TalismanConnector extends InjectedConnector {
   readonly id = "talisman";
   // readonly ready = typeof window != "undefined" && !!window.talismanEth;
   // readonly ready = true;
-  readonly ready = typeof window != "undefined";
+  readonly ready =
+    typeof window != "undefined" && typeof window.talismanEth !== "undefined";
 
   constructor({
     chains,

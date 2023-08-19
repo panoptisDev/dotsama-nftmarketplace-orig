@@ -19,7 +19,8 @@ export class SubWalletConnector extends InjectedConnector {
   // readonly ready =
   //   typeof window != "undefined" && !!window.SubWallet && !!window.isSubWallet;
   // readonly ready = true;
-  readonly ready = typeof window != "undefined";
+  readonly ready =
+    typeof window != "undefined" && typeof window.SubWallet !== "undefined";
 
   constructor({
     chains,
